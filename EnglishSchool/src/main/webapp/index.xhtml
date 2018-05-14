@@ -1,14 +1,117 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Bienvenidos</title>        
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+    
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('Pictures/school-design2.png');
+    min-height: 100%;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }
+}
+</style>
     </h:head>
     <h:body>
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar" id="myNavbar">
+        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+          <i class="fa fa-bars"></i>
+        </a>
+        <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-building" style="font-size:24px"></i> Inicio</a>
+        <a href="#Registrarse" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-child" style="font-size:24px"></i> Registrarse</a>
+        <a href="#Iniciar" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user" style="font-size:24px"></i> Iniciar Sesión</a>
+        <a href="#Contacto" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope" style="font-size:24px"></i> Contacto</a>
+      </div>
+    </div>
+<!-- First Parallax Image with Logo Text -->
+    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+      <div class="w3-display-middle" style="white-space:nowrap;">
+        <span class="w3-center w3-padding-large w3-gray w3-xlarge w3-wide w3-animate-opacity">English School</span>        
+      </div>
+    </div>
+
+    <!-- Container (Contact Section) -->
+    <div class="w3-modal-content w3-animate-zoom border" style="max-width:800px" id="Registrarse">
+        <form class="w3-container" method="POST" >
+            <hr></hr>   
+            <h1>SignUp</h1>
+            <hr></hr>
+            <label for="name"><b>Name </b></label>
+                <p:inputText placeholder="Enter Name" id="name" class="w3-input w3-border w3-margin-bottom"/>
+            <label for="name"><b>Id </b></label>
+                <p:inputText placeholder="Enter Id" id="id" class="w3-input w3-border w3-margin-bottom"/>
+            <label for="email"><b>Email </b></label>
+                <p:inputText placeholder="Enter Email" id="email" class="w3-input w3-border w3-margin-bottom"/>
+            <label for="psw"><b>Password </b></label>
+                <p:password placeholder="Enter Password" id="psw" class="w3-input w3-border w3-margin-bottom"/>
+            <label for="psw-repeat"><b>Repeat Password </b></label>
+                <p:password placeholder="Repeat Password" id="psw-repeat" class="w3-input w3-border w3-margin-bottom"/>
+            <div class="clearfix">
+              <button type="submit" class="w3-button w3-block w3-grey w3-section w3-padding">Sign Up</button>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- Container (Contact Section) -->
+    <div class="w3-modal-content w3-animate-zoom border" style="max-width:800px" id="Iniciar">
+        <form class="w3-container" method="POST" >
+            <hr></hr>   
+            <h1>LogIn</h1>
+            <p class="w3-center">
+                <img src="Pictures/avatar1.png" class="w3-circle" style="height:180px;width:180px" alt="Avatar"></img>
+            </p>
+            <hr></hr>
+            <label for="name"><b>Id </b></label>
+                <p:inputText placeholder="Enter Id" id="id" class="w3-input w3-border w3-margin-bottom"/>
+            <label for="psw"><b>Password </b></label>
+                <p:password placeholder="Enter Password" id="psw" class="w3-input w3-border w3-margin-bottom"/>
+            <div class="clearfix">
+              <button type="submit" class="w3-button w3-block w3-grey w3-section w3-padding">LogIn</button>
+            </div>
+        </form>
+    </div>
+    
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 " id="Contacto">
+  <div class="w3-xlarge w3-section">
+
+  </div>
+</footer>
     </h:body>
 </html>
 

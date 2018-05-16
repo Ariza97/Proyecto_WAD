@@ -13,11 +13,11 @@
     
     <link rel="stylesheet" type="text/css" href="css/css_index.css"></link>
     </h:head>
-    <h:body>
-    <!-- Navbar (sit on top) -->
+    <h:body class="w3-light-grey w3-content" style="max-width:1600px">
+<!-- Navbar (sit on top) -->
     <div class="w3-top">
-      <div class="w3-bar" id="myNavbar">
-        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <div class="w3-bar w3-black" id="myNavbar">
+        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large ">
           <i class="fa fa-bars"></i>
         </a>
         <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-building" style="font-size:24px"></i> Inicio</a>
@@ -26,6 +26,7 @@
         <a href="#Contacto" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope" style="font-size:24px"></i> Contacto</a>
       </div>
     </div>
+
 <!-- Home -->
     <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
       <div class="w3-display-middle" style="white-space:nowrap;">
@@ -35,45 +36,45 @@
 
 <!--Sign up-->
     <div class="w3-modal-content w3-animate-zoom border" style="max-width:800px" id="Registrarse">
-        <form class="w3-container" method="POST" >
+        <h:form class="w3-container">
             <hr></hr>   
             <h1>SignUp</h1>
             <hr></hr>
             <label for="name"><b>Name </b></label>
-                <p:inputText placeholder="Enter Name" id="name" class="w3-input w3-border w3-margin-bottom"/>
+                <p:inputText placeholder="Enter Name" value="#{signIn_Bean.name}" id="name" class="w3-input w3-border w3-margin-bottom"/>
             <label for="last_name"><b>Last name </b></label>
-                <p:inputText placeholder="Enter Last_Name" id="last_name" class="w3-input w3-border w3-margin-bottom"/>                
+                <p:inputText placeholder="Enter Last_Name" value="#{signIn_Bean.lastName}" id="last_name" class="w3-input w3-border w3-margin-bottom"/>
             <label for="id"><b>Id </b></label>
-                <p:inputText placeholder="Enter Id" id="id" class="w3-input w3-border w3-margin-bottom"/>
+                <p:inputText placeholder="Enter Id" value="#{signIn_Bean.id}" id="id"  class="w3-input w3-border w3-margin-bottom"/>
             <label for="email"><b>Email </b></label>
-                <p:inputText placeholder="Enter Email" id="email" class="w3-input w3-border w3-margin-bottom"/>
+                <p:inputText placeholder="Enter Email" value="#{signIn_Bean.email}" id="email" class="w3-input w3-border w3-margin-bottom"/>
             <label for="psw"><b>Password </b></label>
-                <p:password placeholder="Enter Password" id="psw" class="w3-input w3-border w3-margin-bottom"/>
+                <p:password placeholder="Enter Password" value="#{signIn_Bean.password}" id="psw" class="w3-input w3-border w3-margin-bottom"/>
             <label for="psw-repeat"><b>Repeat Password </b></label>
-                <p:password placeholder="Repeat Password" id="psw-repeat" class="w3-input w3-border w3-margin-bottom"/>
+                <p:password placeholder="Repeat Password" value="#{signIn_Bean.RPassword}" id="psw-repeat" class="w3-input w3-border w3-margin-bottom"/>
             <div class="clearfix">
-              <button type="submit" class="w3-button w3-block w3-grey w3-section w3-padding">Sign Up</button>
+                <p:commandButton type="submit" action="#{signIn_Bean.validate()}" class="w3-button w3-block w3-grey w3-section w3-padding" value="SignIn"/>
             </div>
-        </form>
+        </h:form>
     </div>
 
 <!--Log in-->
     <div class="w3-modal-content w3-animate-zoom border" style="max-width:800px" id="Iniciar">
-        <form class="w3-container" method="POST" >
+        <h:form class="w3-container">
             <hr></hr>   
             <h1>LogIn</h1>
             <p class="w3-center">
-                <img src="Pictures/avatar1.png" class="w3-circle" style="height:180px;width:180px" alt="Avatar"></img>
+                <img src="Pictures/avatar1.png" class="w3-circle" style="height:180px;width:180px"></img>
             </p>
             <hr></hr>
             <label for="name"><b>Id </b></label>
-                <p:inputText placeholder="Enter Id" id="id" class="w3-input w3-border w3-margin-bottom"/>
+                <p:inputText placeholder="Enter Id" value="#{logIn_Bean.id}" id="id" class="w3-input w3-border w3-margin-bottom"/>
             <label for="psw"><b>Password </b></label>
-                <p:password placeholder="Enter Password" id="psw" class="w3-input w3-border w3-margin-bottom"/>
+                <p:password placeholder="Enter Password" value="#{logIn_Bean.psw}" id="psw" class="w3-input w3-border w3-margin-bottom"/>
             <div class="clearfix">
-              <button type="submit" class="w3-button w3-block w3-grey w3-section w3-padding">LogIn</button>
+                <p:commandButton type="submit" action="#{logIn_Bean.validate()}" class="w3-button w3-block w3-grey w3-section w3-padding" value="LogIn"/>
             </div>
-        </form>
+        </h:form>
     </div>
     
 <!-- Footer -->

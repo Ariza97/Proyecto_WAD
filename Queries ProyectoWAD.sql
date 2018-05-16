@@ -102,12 +102,12 @@ ADD CONSTRAINT XPKRol PRIMARY KEY (idRol);
 CREATE TABLE Usuarios
 (
 	idUsuarios           INTEGER NOT NULL AUTO_INCREMENT,
-	nombre               VARCHAR(25) NULL,
-	apellidoP            VARCHAR(25) NULL,
-	apellidoM            VARCHAR(25) NULL,
-	correo               VARCHAR(25) NULL,
-	contraseña           VARCHAR(15) NULL,
-	idRol                INTEGER NULL,
+	nombre               VARCHAR(25) NOT NULL,
+	apellido             VARCHAR(25) NOT NULL,
+	idLog				 VARCHAR(25) NOT NULL,
+	correo               VARCHAR(25) NOT NULL,
+	contraseña           VARCHAR(15) NOT NULL,
+	idRol                INTEGER NOT NULL,
 	CONSTRAINT XPKUsuarios PRIMARY KEY (idUsuarios)
 );
 
@@ -162,21 +162,26 @@ ADD CONSTRAINT R_2 FOREIGN KEY (idRol) REFERENCES Rol (idRol) ON DELETE CASCADE 
 
 
 
-
+--Asignar roles
+insert into rol values(1,'administrador');
+insert into rol values(2,'profesor');
+insert into rol values(3,'alumno');
 
 
 
 
 -------Para insertar usuarios administradores
-insert into usuarios(nombre,apellidoP,apellidoM,correo,contraseña,idRol) values ('Samantha','Olmos','Carrillo','champi99@gmail.com','aleychampi',1);
+insert into usuarios(nombre,apellido,idLog,correo,contraseña,idRol) values ('Samantha','Olmos','samichampi99','champi99@gmail.com','aleychampi',1);
 -------Para insertar usuarios profesores
-insert into usuarios(nombre,apellidoP,apellidoM,correo,contraseña,idRol) values ('Aristides','Ariza','Martinez','arizaxxx@gmail.com','irenemailof',2);
+insert into usuarios(nombre,apellido,idLog,correo,contraseña,idRol) values ('Aristides','Ariza','ariz123','arizaxxx@gmail.com','irenemailof',2);
 -------Para insertar usuarios alumnos
-insert into usuarios(nombre,apellidoP,apellidoM,correo,contraseña,idRol) values ('Irene','Ramirez','Montalvo','irenedeariza@gmail.com','arismailof',3);
+insert into usuarios(nombre,apellido,idLog,correo,contraseña,idRol) values ('Irene','Ramirez','ireneescom33','irenedeariza@gmail.com','arismailof',3);
 
 
-insert into profesor(idUsuarios) values (2);
-insert into alumno(idUsuarios) values (3);
+insert into administrador(idUsuarios) values (2);
+insert into profesor(idUsuarios) values (3);
+insert into alumno(idUsuarios) values (4);
+
 create view admins as select u.idUsuarios,u.correo,u.contraseña from usuarios u,administrador a where u.idUsuarios = a.idUsuarios;
 create view profes as select u.idUsuarios,u.correo,u.contraseña from usuarios u,profesor p where u.idUsuarios = p.idUsuarios;
 create view alumnos as select u.idUsuarios,u.correo,u.contraseña from usuarios u,alumno al where u.idUsuarios = al.idUsuarios;

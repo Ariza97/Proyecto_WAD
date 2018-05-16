@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <!--
 DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
@@ -39,17 +39,11 @@ made subject to such option by the copyright holder.
 
 Contributor(s):
 -->
-<hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/proyectowad?zeroDateTimeBehavior=convertToNull</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">ale970807</property>
-    <mapping resource="entity/Administrador.hbm.xml"/>
-    <mapping resource="entity/Rol.hbm.xml"/>
-    <mapping resource="entity/Alumno.hbm.xml"/>
-    <mapping resource="entity/Profesor.hbm.xml"/>
-    <mapping resource="entity/Usuarios.hbm.xml"/>
-  </session-factory>
-</hibernate-configuration>
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="proyectowad"/>
+  <table-filter match-name="rol"/>
+  <table-filter match-name="profesor"/>
+  <table-filter match-name="usuarios"/>
+  <table-filter match-name="administrador"/>
+  <table-filter match-name="alumno"/>
+</hibernate-reverse-engineering>

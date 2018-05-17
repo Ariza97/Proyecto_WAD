@@ -55,11 +55,9 @@ public class LogIn_Bean implements Serializable {
                 case 1:
                     FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Entro", "Administrador");
                     PrimeFaces.current().dialog().showMessageDynamic(message);
-                    return "index";
+                    return "index"; //Aqui va pagina de administrador
                 case 2:
-                    FacesMessage message1 = new FacesMessage(FacesMessage.SEVERITY_INFO, "Entro", "Profesor");
-                    PrimeFaces.current().dialog().showMessageDynamic(message1);
-                    return "index";
+                    return "P_Teacher/WelcomeTeacher";
                 case 3:
                     return "P_Alumnos/WelcomeStudents";
                 default:

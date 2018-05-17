@@ -23,7 +23,6 @@ public class Student_Bean implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    private String psw;
 
     public Student_Bean() {
         fc = FacesContext.getCurrentInstance();
@@ -40,14 +39,6 @@ public class Student_Bean implements Serializable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getPsw() {
-        return psw;
-    }
-
-    public void setPsw(String psw) {
-        this.psw = psw;
     }
 
 }

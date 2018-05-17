@@ -15,17 +15,18 @@
     </h:head>
     <h:body class="w3-light-grey w3-content" style="max-width:1600px">
         <!-- Navbar (sit on top) -->
-        <div class="w3-top">
-            <div class="w3-bar w3-black" id="myNavbar">
-                <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large ">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-building" style="font-size:24px"></i> Inicio</a>
-                <a href="#Registrarse" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-child" style="font-size:24px"></i> Registrarse</a>
-                <a href="#Iniciar" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user" style="font-size:24px"></i> Iniciar Sesión</a>
-                <a href="#Contacto" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope" style="font-size:24px"></i> Contacto</a>
-            </div>
-        </div>
+    <div class="w3-top">
+      <div class="w3-bar w3-black" id="myNavbar">
+        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large ">
+          <i class="fa fa-bars"></i>
+        </a>
+        <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-building" style="font-size:24px"></i> Home</a>        
+        <a onclick="document.getElementById('LogIn').style.display='block'" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user" style="font-size:24px"></i> LogIn</a>
+        <a onclick="document.getElementById('SignIn').style.display='block'" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-child" style="font-size:24px"></i> SignIn</a>
+        
+        <a href="#Contacto" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope" style="font-size:24px"></i> Contacto</a>
+      </div>
+    </div>
 
         <!-- Home -->
         <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
@@ -34,48 +35,64 @@
             </div>
         </div>
 
-        <!--Sign up-->
-        <div class="w3-modal-content w3-animate-zoom border" style="max-width:800px" id="Registrarse">
-            <h:form class="w3-container">
-                <hr></hr>   
-                <h1>SignUp</h1>
-                <hr></hr>
-                <label for="name"><b>Name </b></label>
-                <p:inputText placeholder="Enter Name" value="#{signIn_Bean.name}" id="name" class="w3-input w3-border w3-margin-bottom"/>
-                <label for="last_name"><b>Last name </b></label>
-                <p:inputText placeholder="Enter Last_Name" value="#{signIn_Bean.lastName}" id="last_name" class="w3-input w3-border w3-margin-bottom"/>
-                <label for="id"><b>Id </b></label>
-                <p:inputText placeholder="Enter Id" value="#{signIn_Bean.id}" id="id"  class="w3-input w3-border w3-margin-bottom"/>
-                <label for="email"><b>Email </b></label>
-                <p:inputText placeholder="Enter Email" value="#{signIn_Bean.email}" id="email" class="w3-input w3-border w3-margin-bottom"/>
-                <label for="psw"><b>Password </b></label>
-                <p:password placeholder="Enter Password" value="#{signIn_Bean.password}" id="psw" class="w3-input w3-border w3-margin-bottom"/>
-                <label for="psw-repeat"><b>Repeat Password </b></label>
-                <p:password placeholder="Repeat Password" value="#{signIn_Bean.RPassword}" id="psw-repeat" class="w3-input w3-border w3-margin-bottom"/>
-                <div class="clearfix">
-                    <p:commandButton type="submit" action="#{signIn_Bean.validate()}" class="w3-button w3-block w3-grey w3-section w3-padding" value="SignIn"/>
-                </div>
-            </h:form>
-        </div>
 
-        <!--Log in-->
-        <div class="w3-modal-content w3-animate-zoom border" style="max-width:800px" id="Iniciar">
-            <h:form class="w3-container">
-                <hr></hr>   
-                <h1>LogIn</h1>
-                <p class="w3-center">
-                    <img src="Pictures/avatar1.png" class="w3-circle" style="height:180px;width:180px"></img>
-                </p>
-                <hr></hr>
-                <label for="name"><b>Id </b></label>
-                <p:inputText placeholder="Enter Id" value="#{logIn_Bean.id}" id="id" class="w3-input w3-border w3-margin-bottom"/>
-                <label for="psw"><b>Password </b></label>
-                <p:password placeholder="Enter Password" value="#{logIn_Bean.psw}" id="psw" class="w3-input w3-border w3-margin-bottom"/>
-                <div class="clearfix">
-                    <p:commandButton type="submit" action="#{logIn_Bean.validate()}" class="w3-button w3-block w3-grey w3-section w3-padding" value="LogIn"/>
-                </div>
-            </h:form>
+<!--Sign up-->
+  <div id="SignIn" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-grey" style="max-width:600px">
+      <div class="w3-center"><br/>
+        <span onclick="document.getElementById('SignIn').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+        <img src="Pictures/avatar1.png" alt="Avatar" style="width:30%" class="w3-circle w3-card-4 w3-margin-top"/>
+      </div>
+      <h:form class="w3-container">
+        <div class="w3-section">
+            <label for="name"><b> Name </b></label>
+                <p:inputText placeholder="Enter Name" value="#{signIn_Bean.name}" id="name" class="w3-input"/>
+            <label for="last_name"><b> Last name </b></label>
+                <p:inputText placeholder="Enter Last_Name" value="#{signIn_Bean.lastName}" id="last_name" class="w3-input"/>
+            <label for="id"><b>User name </b></label>
+                <p:inputText placeholder="Enter User_Name" value="#{signIn_Bean.id}" id="id"  class="w3-input"/>
+            <label for="email"><b> Email </b></label>
+                <p:inputText placeholder="Enter Email" value="#{signIn_Bean.email}" id="email" class="w3-input"/>
+            <label for="psw"><b> Password </b></label>
+                <p:password placeholder="Enter Password" value="#{signIn_Bean.password}" id="psw" class="w3-input"/>
+            <label for="psw-repeat"><b> Repeat Password </b></label>
+                <p:password placeholder="Repeat Password" value="#{signIn_Bean.RPassword}" id="psw-repeat" class="w3-input"/>
+                <hr/>
+            <div class="clearfix w3-container w3-border-top w3-padding-16 w3-white">
+                <p:commandButton type="submit" action="#{signIn_Bean.validate()}" class="w3-button w3-block w3-green w3-section w3-padding" value="SignIn"/>              
+                <label>
+                  <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"/> Remember me
+                </label>
+            </div>
         </div>
+      </h:form>
+    </div>
+  </div>
+
+<!--Log in-->
+  <div id="LogIn" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-grey" style="max-width:600px">
+      <div class="w3-center"><br/>
+        <span onclick="document.getElementById('LogIn').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+        <img src="Pictures/avatar1.png" alt="Avatar" style="width:30%" class="w3-circle w3-card-4 w3-margin-top"/>
+      </div>
+      <h:form class="w3-container">
+        <div class="w3-section">
+            <label for="name"><b>Username</b></label>
+                <p:inputText placeholder="Enter UserName" value="#{logIn_Bean.id}" id="id" class="w3-input w3-border w3-margin-bottom"/>
+            <label for="psw"><b>Password </b></label>
+                <p:password placeholder="Enter Password" value="#{logIn_Bean.psw}" id="psw" class="w3-input w3-border w3-margin-bottom"/>
+                <hr/>
+            <div class="clearfix w3-container w3-border-top w3-padding-16 w3-white">
+                <p:commandButton type="submit" action="#{logIn_Bean.validate()}" class="w3-button w3-block w3-green w3-section w3-padding" value="SignIn"/>              
+                <label>
+                  <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"/> Remember me
+                </label>
+            </div>
+        </div>
+      </h:form>
+    </div>
+  </div>
 
         <!-- Footer -->
         <footer class="w3-center w3-black w3-padding-64 " id="Contacto">

@@ -27,16 +27,18 @@ public class LogIn_Bean implements Serializable {
     }
 
     public String validate() {
+        System.out.println("Holaa");
         int tipo;
         String nombre;
         Session hibernateSession;
         Usuarios user;
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
         hibernateSession.beginTransaction();
+        
         if (psw.equals("") || id.equals("")) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Revisar", "Llenar ambos campos");
             PrimeFaces.current().dialog().showMessageDynamic(message);
-            return "index";
+            return null;
         } else {
             user = (Usuarios) hibernateSession.createQuery("from Usuarios where idLog = '" + id + "' and contraseña ='" + psw + "'").uniqueResult();
 
@@ -63,7 +65,7 @@ public class LogIn_Bean implements Serializable {
                 default:
                     FacesMessage message2 = new FacesMessage(FacesMessage.SEVERITY_INFO, "Revisar", "Constraseña o Usuario incorrecto");
                     PrimeFaces.current().dialog().showMessageDynamic(message2);
-                    return "index";
+                    return null;
             }
         }
     }

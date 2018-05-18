@@ -1,4 +1,4 @@
-CREATE DATABASE proyectowad;
+﻿CREATE DATABASE proyectowad;
 USE proyectowad;
 
 CREATE TABLE Administrador
@@ -187,8 +187,8 @@ create view profes as select u.idUsuarios,u.correo,u.contraseña from usuarios u
 create view alumnos as select u.idUsuarios,u.correo,u.contraseña from usuarios u,alumno al where u.idUsuarios = al.idUsuarios;
 
 --Para ver por tipo
-selct * from profes;
-selct * from admins;
-selct * from alumnos;
+select * from profes;
+select * from admins;
+select * from alumnos;
 
 

@@ -15,7 +15,7 @@ import org.primefaces.PrimeFaces;
 @ManagedBean
 @RequestScoped
 
-public class SignIn_Bean implements Serializable {
+public class SignInAD_Bean implements Serializable {
 
     private String Name;
     private String LastName;
@@ -80,8 +80,6 @@ public class SignIn_Bean implements Serializable {
         this.RPassword = RPassword;
     }
 
-
-
     public String validate() {
         //Revisamos que todos los campos esten llenos
         if (Name.equals("") || LastName.equals("") || Id.equals("") || Email.equals("") || Password.equals("") || RPassword.equals("")) {
@@ -131,8 +129,8 @@ public class SignIn_Bean implements Serializable {
             hibernateSession.save(a);
         }
         hibernateSession.getTransaction().commit();
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registro exitoso", "Inicie sesión para comenzar");
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registro exitoso", null);
         PrimeFaces.current().dialog().showMessageDynamic(message);
-        return "index";
+        return "WelcomeAdministrator";
     }
 }

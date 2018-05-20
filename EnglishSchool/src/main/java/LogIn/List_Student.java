@@ -1,8 +1,6 @@
 package LogIn;
 
-import entity.Profesor;
-import entity.Usuarios;
-import javax.inject.Named;
+
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,7 +8,6 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
-@Named(value = "list_Teacher")
 @SessionScoped
 
 public class List_Student implements Serializable {

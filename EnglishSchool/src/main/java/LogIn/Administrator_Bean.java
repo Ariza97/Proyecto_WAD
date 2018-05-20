@@ -1,6 +1,5 @@
 package LogIn;
 
-
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -14,16 +13,17 @@ public class Administrator_Bean implements Serializable {
 
     private final FacesContext fc;
     private final HttpServletRequest request;
-    private String id ="Feo";
-    private String nombre ="Perro";
-    private String mail ="e@gmail.com";
+    private String id;
+    private String nombre;
+    private String mail;
 
-    public Administrator_Bean() {        
+    public Administrator_Bean() {
         fc = FacesContext.getCurrentInstance();
         request = (HttpServletRequest) fc.getExternalContext().getRequest();
         if (request.getSession().getAttribute("sesionusuario") != null) {
             id = (String) request.getSession().getAttribute("sesionusuario");
             nombre = (String) request.getSession().getAttribute("nombre");
+            mail = (String) request.getSession().getAttribute("mail");
         }
     }
 

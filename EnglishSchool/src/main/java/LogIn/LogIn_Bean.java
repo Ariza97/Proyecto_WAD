@@ -6,6 +6,7 @@ import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import org.hibernate.Session;
@@ -29,7 +30,7 @@ public class LogIn_Bean implements Serializable {
     public String validate() {
         System.out.println("Holaa");
         int tipo;
-        String nombre;
+        String nombre, mail;
         Session hibernateSession;
         Usuarios user;
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
@@ -51,9 +52,11 @@ public class LogIn_Bean implements Serializable {
             request.getSession().setAttribute("sesionusuario", id);
             nombre = ""+user.getNombre()+" "+user.getApellido();
             request.getSession().setAttribute("nombre", nombre);
+            mail = user.getCorreo();
+            request.getSession().setAttribute("mail", mail);
             switch (tipo) {
                 case 1:
-                    return "P_Administrador/WelcomeAdministrator"; //Aqui va pagina de administrador
+                    return "P_Administrador/WelcomeAdministrator"; 
                 case 2:
                     return "P_Teacher/WelcomeTeacher";
                 case 3:

@@ -13,7 +13,7 @@ import javax.faces.bean.ManagedBean;
 @Named(value = "list_Teacher")
 @SessionScoped
 
-public class List_Teacher implements Serializable {
+public class List_Student implements Serializable {
     private SignIn_Bean persona =new SignIn_Bean();
     private static List<SignIn_Bean> lstpersona =new ArrayList<>();
 
@@ -21,11 +21,11 @@ public class List_Teacher implements Serializable {
     //y ya llenas la lista
     public void agregarPersona(){
         System.err.println("AVAS");
-        List_Teacher.lstpersona.add(this.persona);       
+        List_Student.lstpersona.add(this.persona);       
     }
     
     public void eliminarPersona(SignIn_Bean per){
-        List_Teacher.lstpersona.remove(per);
+        List_Student.lstpersona.remove(per);
     }
     
     public void modificarPersona(SignIn_Bean per){
@@ -36,7 +36,7 @@ public class List_Teacher implements Serializable {
         return lstpersona;
     }
     public void setLstpersona(List<SignIn_Bean> lstpersona) {
-        List_Teacher.lstpersona = lstpersona;
+        List_Student.lstpersona = lstpersona;
     }    
     public SignIn_Bean getPersona() {
         return persona;

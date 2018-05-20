@@ -47,8 +47,9 @@
     <!-- End Left Column -->
     </div>
     
-    <!-- Middle Column -->
+    <!--Middle paga-->
     <br/>
+    <!--Teacher -->
     <div class="w3-col m9">
       <div class="w3-row-padding">
         <div class="w3-col m12">
@@ -60,31 +61,36 @@
                     Add new           
                     </button>
                 </a>
+                <button onclick="document.getElementById('ListTeacher').style.display='none'" class="w3-btn w3-white w3-border w3-border-red w3-text-red w3-round-large">
+                <i class="fa fa-eye" style="color:red"></i>
+                    Hide all
+                </button>
                 <button onclick="myFunction('ListTeacher')" class="w3-btn w3-white w3-border w3-border-red w3-text-red w3-round-large">
                 <i class="fa fa-eye" style="color:red"></i>
                     Show all
                 </button>
               <hr/>
                       
-            <h:form  id="ListTeacher" class="w3-hide w3-container">
-                <p:dataTable  value="#{list_Teacher.lst}" 
+            <h:form  id="ListTeacher" class="w3-container">
+                <p:dataTable  value="#{list_Teacher.lstpersona}" 
                               var="teacher">
                     <p:column headerText= "First name">
-                        #{teacher.nombre}
+                        <p:outputLabel value="#{teacher.name}"/>
                     </p:column>
                     <p:column headerText="Last name">
-                        #{teacher.apellido}
+                        <p:outputLabel value="#{teacher.lastName}"/>
                     </p:column>
                     <p:column headerText="Id">
-                        #{teacher.idLog}
+                        <p:outputLabel value="#{teacher.id}"/>
                     </p:column>
                     <p:column headerText="Modify">
+                        <h:commandLink value="Modificar" actionListener="#{list_Teacher.modificarPersona(per)}"/>
                             <i class="fa fa-edit button" style="color:red"></i>
-
                     </p:column>
                     <p:column headerText="Delete">
-                        <p:commandButton value="Count" actionListener="#{list_Teacher.recibirDatos()}" update="@(form)" />
-                    </p:column>                    
+                        <h:commandLink value="Eliminar" actionListener="#{list_Teacher.eliminarPersona(teacher)}"/>
+                        <i class="fa fa-edit button" style="color:red"></i>
+                    </p:column>
                 </p:dataTable>
                 <br/>
             </h:form>
@@ -101,56 +107,37 @@
       <h:form class="w3-container">
         <div class="w3-section">
             <label for="name"><b> Name </b></label>
-                <p:inputText placeholder="Enter Name" value="#{signIn_Bean.name}" id="name" class="w3-input"/>
+            <p:inputText placeholder="Enter Name" value="#{list_Teacher.persona.name}" id="name" class="w3-input"/>
             <label for="last_name"><b> Last name </b></label>
-                <p:inputText placeholder="Enter Last_Name" value="#{signIn_Bean.lastName}" id="last_name" class="w3-input"/>
+                <p:inputText placeholder="Enter Last_Name" value="#{list_Teacher.persona.lastName}" id="last_name" class="w3-input"/>
             <label for="id"><b>User name </b></label>
-                <p:inputText placeholder="Enter User_Name" value="#{signIn_Bean.id}" id="id"  class="w3-input"/>
+                <p:inputText placeholder="Enter User_Name" value="#{list_Teacher.persona.id}" id="id"  class="w3-input"/>
             <label for="email"><b> Email </b></label>
-                <p:inputText placeholder="Enter Email" value="#{signIn_Bean.email}" id="email" class="w3-input"/>
+                <p:inputText placeholder="Enter Email" value="#{list_Teacher.persona.email}" id="email" class="w3-input"/>
             <label for="psw"><b> Password </b></label>
-                <p:password placeholder="Enter Password" value="#{signIn_Bean.password}" id="psw" class="w3-input"/>
+                <p:password placeholder="Enter Password" value="#{list_Teacher.persona.password}" id="psw" class="w3-input"/>
             <label for="psw-repeat"><b> Repeat Password </b></label>
-                <p:password placeholder="Repeat Password" value="#{signIn_Bean.RPassword}" id="psw-repeat" class="w3-input"/>
+                <p:password placeholder="Repeat Password" value="#{list_Teacher.persona.RPassword}" id="psw-repeat" class="w3-input"/>
             <label for="type_user"><b> Type of User </b></label>
-                <p:selectOneMenu class="w3-input" value="#{signIn_Bean.cargo}">
+                <p:selectOneMenu class="w3-input" value="#{list_Teacher.persona.cargo}">
                     <f:selectItem itemLabel="Teacher" itemValue="Teacher" />
                     <f:selectItem itemLabel="Student" itemValue="Student" />
                 </p:selectOneMenu>
                 <hr/>
             <div class="clearfix w3-container w3-border-top w3-padding-16 w3-white">
-                <p:commandButton type="submit" action="#{signIn_Bean.validate()}" class="w3-button w3-block w3-green w3-section w3-padding" value="Sign In"/>              
+                <h:commandButton actionListener="#{list_Teacher.agregarPersona}" value="Add" class="w3-button w3-block w3-green w3-section w3-padding"/>              
             </div>
         </div>
       </h:form>
     </div>
   </div> <!--Final Sign up-->
-   
-    
-    
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
-            <div id="Demo1" class="w3-hide w3-container">
-                <p:dataTable>
-                    
-                </p:dataTable>
-            </div>
-          </div>
-        </div>
-    <br/><br/>
 
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
-            <div id="Demo1" class="w3-hide w3-container">
-              <p>Some text..</p>
-            </div>
-          </div>
-        </div>
       </div>
         
+    <!--Student -->
     </div> <!-- End Middle Column -->
+
+ 
  
 </div><!-- End Page Container -->
 <br/>

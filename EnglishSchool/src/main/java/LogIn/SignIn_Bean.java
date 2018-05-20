@@ -15,7 +15,16 @@ public class SignIn_Bean implements Serializable{
     private String Id;
     private String Email;
     private String Password, RPassword;
+    private String Cargo;
 
+    public String getCargo() {
+        return Cargo;
+    }
+
+    public void setCargo(String Cargo) {
+        this.Cargo = Cargo;
+    }
+            
     public String validate() {
         //Revisamos que todos los campos esten llenos
         if(Name.equals("")||LastName.equals("")||Id.equals("")||Email.equals("")||Password.equals("")||RPassword.equals("")){

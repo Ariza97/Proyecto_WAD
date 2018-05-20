@@ -14,8 +14,9 @@ public class Administrator_Bean implements Serializable {
 
     private final FacesContext fc;
     private final HttpServletRequest request;
-    private String id;
+    private String id ="Feo";
     private String nombre ="Perro";
+    private String mail ="e@gmail.com";
 
     public Administrator_Bean() {        
         fc = FacesContext.getCurrentInstance();
@@ -24,6 +25,14 @@ public class Administrator_Bean implements Serializable {
             id = (String) request.getSession().getAttribute("sesionusuario");
             nombre = (String) request.getSession().getAttribute("nombre");
         }
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getId() {

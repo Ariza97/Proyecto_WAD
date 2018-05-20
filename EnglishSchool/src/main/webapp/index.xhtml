@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Bienvenidos</title>        
         <meta charset="UTF-8"/>
@@ -57,6 +58,11 @@
                 <p:password placeholder="Enter Password" value="#{signIn_Bean.password}" id="psw" class="w3-input"/>
             <label for="psw-repeat"><b> Repeat Password </b></label>
                 <p:password placeholder="Repeat Password" value="#{signIn_Bean.RPassword}" id="psw-repeat" class="w3-input"/>
+            <label for="type_user"><b> Type of User </b></label>
+                <p:selectOneMenu class="w3-input" value="#{signIn_Bean.cargo}">
+                    <f:selectItem itemLabel="Teacher" itemValue="Teacher" />
+                    <f:selectItem itemLabel="Student" itemValue="Student" />
+                </p:selectOneMenu>
                 <hr/>
             <div class="clearfix w3-container w3-border-top w3-padding-16 w3-white">
                 <p:commandButton type="submit" action="#{signIn_Bean.validate()}" class="w3-button w3-block w3-green w3-section w3-padding" value="Sign In"/>              

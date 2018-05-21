@@ -9,6 +9,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.primefaces.PrimeFaces;
 
@@ -35,7 +36,9 @@ public class LogIn_Bean implements Serializable {
         Usuarios user;
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
         hibernateSession.beginTransaction();
-        
+        request.getSession().removeAttribute("sesionusuario");
+        request.getSession().removeAttribute("nombre");
+        request.getSession().removeAttribute("mail");
         if (psw.equals("") || id.equals("")) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Revisar", "Llenar ambos campos");
             PrimeFaces.current().dialog().showMessageDynamic(message);

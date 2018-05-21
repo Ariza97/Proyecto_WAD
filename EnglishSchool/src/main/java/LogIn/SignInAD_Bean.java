@@ -131,6 +131,10 @@ public class SignInAD_Bean implements Serializable {
         hibernateSession.getTransaction().commit();
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registro exitoso", null);
         PrimeFaces.current().dialog().showMessageDynamic(message);
+        
+        List_Teacher nuevo =new List_Teacher();
+        nuevo.actualizar();
+        
         return "WelcomeAdministrator";
     }
 }

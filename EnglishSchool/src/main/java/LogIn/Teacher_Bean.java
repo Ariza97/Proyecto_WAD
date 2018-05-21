@@ -2,12 +2,12 @@ package LogIn;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 
 public class Teacher_Bean implements Serializable {
 

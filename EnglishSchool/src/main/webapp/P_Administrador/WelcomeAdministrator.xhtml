@@ -112,25 +112,25 @@
                             <h:form class="w3-container">
                                 <div class="w3-section">
                                     <label for="name"><b> Name </b></label>
-                                    <p:inputText placeholder="Enter Name" value="#{signInAD_Bean.name}" id="name" class="w3-input"/>
+                                    <p:inputText placeholder="Enter Name" value="#{list_Teacher.persona.name}" id="name" class="w3-input"/>
                                     <label for="last_name"><b> Last name </b></label>
-                                    <p:inputText placeholder="Enter Last_Name" value="#{signInAD_Bean.lastName}" id="last_name" class="w3-input"/>
+                                    <p:inputText placeholder="Enter Last_Name" value="#{list_Teacher.persona.lastName}" id="last_name" class="w3-input"/>
                                     <label for="id"><b>User name </b></label>
-                                    <p:inputText placeholder="Enter User_Name" value="#{signInAD_Bean.id}" id="id"  class="w3-input"/>
+                                    <p:inputText placeholder="Enter User_Name" value="#{list_Teacher.persona.id}" id="id"  class="w3-input"/>
                                     <label for="email"><b> Email </b></label>
-                                    <p:inputText placeholder="Enter Email" value="#{signInAD_Bean.email}" id="email" class="w3-input"/>
+                                    <p:inputText placeholder="Enter Email" value="#{list_Teacher.persona.email}" id="email" class="w3-input"/>
                                     <label for="psw"><b> Password </b></label>
-                                    <p:password placeholder="Enter Password" value="#{signInAD_Bean.password}" id="psw" class="w3-input"/>
+                                    <p:password placeholder="Enter Password" value="#{list_Teacher.persona.password}" id="psw" class="w3-input"/>
                                     <label for="psw-repeat"><b> Repeat Password </b></label>
-                                    <p:password placeholder="Repeat Password" value="#{signInAD_Bean.RPassword}" id="psw-repeat" class="w3-input"/>
+                                    <p:password placeholder="Repeat Password" value="#{list_Teacher.persona.RPassword}" id="psw-repeat" class="w3-input"/>
                                     <label for="type_user"><b> Type of User </b></label>
-                                    <p:selectOneMenu class="w3-input" value="#{signInAD_Bean.cargo}">
+                                    <p:selectOneMenu class="w3-input" value="#{list_Teacher.persona.cargo}">
                                         <f:selectItem itemLabel="Teacher" itemValue="Teacher" />
                                         <f:selectItem itemLabel="Student" itemValue="Student" />
                                     </p:selectOneMenu>
                                     <hr/>
                                     <div class="clearfix w3-container w3-border-top w3-padding-16 w3-white">
-                                        <p:commandButton type="submit" action="#{signInAD_Bean.validate()}" class="w3-button w3-block w3-green w3-section w3-padding" value="Sign In"/>              
+                                        <p:commandButton type="submit" action="#{list_Teacher.actualizar()}" class="w3-button w3-block w3-green w3-section w3-padding" value="Sign In"/>              
                                         <label>
                                             <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"/> Remember me
                                         </label>

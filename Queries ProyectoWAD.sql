@@ -172,6 +172,8 @@ insert into rol values(3,'alumno');
 
 -------Para insertar usuarios administradores
 insert into usuarios(nombre,apellido,idLog,correo,contraseña,idRol) values ('Samantha','Olmos','samichampi99','champi99@gmail.com','aleychampi',1);
+insert into usuarios(nombre,apellido,idLog,correo,contraseña,idRol) values ('123','Ariza','123','123@gmail.com','123',1);
+
 insert into usuarios(nombre,apellido,idLog,correo,contraseña,idRol) values ('Ruben','Peredo','rperedo','rubenpv@gmail.com','rpv',1);
 -------Para insertar usuarios profesores
 insert into usuarios(nombre,apellido,idLog,correo,contraseña,idRol) values ('Aristides','Ariza','ariz123','arizaxxx@gmail.com','irenemailof',2);

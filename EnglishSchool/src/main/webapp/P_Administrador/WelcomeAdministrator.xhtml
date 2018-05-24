@@ -25,8 +25,6 @@
         </div>
         <!-- Page Container -->
         <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
-
-
             <!-- Left Column -->
             <div class="w3-col m3">
                 <!-- Profile -->
@@ -40,12 +38,7 @@
                         <p><i class="fa fa-at fa-fw w3-margin-right w3-text-theme"></i> <h:outputText value="#{administrator_Bean.mail}"/></p>
                     </div>
                 </div>
-                <!-- Alert Box -->
-                <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
-                    <p><strong>I wish you an excelent day!</strong></p>
-                </div>
-                <!-- End Left Column -->
-            </div>
+            </div><!-- End Left Column -->
 
             <!--Middle paga-->
             <br/>
@@ -70,7 +63,6 @@
                                 Show all
                             </button>
                             <hr/>
-
                             <h:form  id="ListTeacher" class="w3-container">
                                 <p:dataTable  value="#{list_Teacher.lstpersona}" 
                                               var="teacher">
@@ -87,16 +79,18 @@
                                         <p:outputLabel value="#{teacher.idLog}" rendered="#{not teacher.editable}"/>
                                     </p:column>
                                     <p:column headerText="Modify">
-                                        <h:commandLink value="Modificar" action="#{list_Teacher.editAction(teacher)}" rendered="#{not teacher.editable}" />
-                                        <i class="fa fa-edit button" style="color:red"></i>
-                                         <h:commandLink value=" Save" action="#{list_Teacher.guardar(teacher)}" rendered="#{teacher.editable}" />
+                                        <h:commandLink value=" Modify" action="#{list_Teacher.editAction(teacher)}" rendered="#{not teacher.editable}" />
+                                        <i class="fa fa-pencil-square-o w3-align-left" style="font-size:18px;color:red">
+                                        </i>                                        
+                                        <h:commandLink value=" Save" action="#{list_Teacher.guardar(teacher)}" rendered="#{teacher.editable}" />
+
                                     </p:column>
                                     <p:column headerText="Delete">
-                                        <h:commandLink value="Eliminar" action="#{list_Teacher.eliminarPersona(teacher.idUsuarios)}"/>
-                                        <i class="fa fa-edit button" style="color:red"></i>
+                                        <i class="fa fa-eraser button" style="font-size:18px;color:red">
+                                        <h:commandLink value=" Delete" action="#{list_Teacher.eliminarPersona(teacher.idUsuarios)}"/>
+                                        </i>
                                     </p:column>
                                 </p:dataTable>
-
                                 <br/>
                             </h:form>
                         </div>
@@ -105,45 +99,46 @@
                     <br/><br/>
                     <!--Sign up-->
                     <div id="SignIn" class="w3-modal w3-animate-opacity ">
-                        <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-grey w3-border w3-border-red" style="max-width:600px">
+                        <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-grey w3-border w3-border-red" style="max-width:700px">
                             <div class="w3-center"><br/>
-                                <span onclick="document.getElementById('SignIn').style.display = 'none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                                <span onclick="document.getElementById('SignIn').style.display = 'none'" class="w3-button w3-large w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                             </div>
-                            <h:form class="w3-container">
-                                <div class="w3-section">
-                                    <label for="name"><b> Name </b></label>
-                                    <p:inputText placeholder="Enter Name" value="#{list_Teacher.persona.name}" id="name" class="w3-input"/>
-                                    <label for="last_name"><b> Last name </b></label>
-                                    <p:inputText placeholder="Enter Last_Name" value="#{list_Teacher.persona.lastName}" id="last_name" class="w3-input"/>
-                                    <label for="id"><b>User name </b></label>
-                                    <p:inputText placeholder="Enter User_Name" value="#{list_Teacher.persona.id}" id="id"  class="w3-input"/>
-                                    <label for="email"><b> Email </b></label>
-                                    <p:inputText placeholder="Enter Email" value="#{list_Teacher.persona.email}" id="email" class="w3-input"/>
-                                    <label for="psw"><b> Password </b></label>
-                                    <p:password placeholder="Enter Password" value="#{list_Teacher.persona.password}" id="psw" class="w3-input"/>
-                                    <label for="psw-repeat"><b> Repeat Password </b></label>
-                                    <p:password placeholder="Repeat Password" value="#{list_Teacher.persona.RPassword}" id="psw-repeat" class="w3-input"/>
-                                    <label for="type_user"><b> Type of User </b></label>
-                                    <p:selectOneMenu class="w3-input" value="#{list_Teacher.persona.cargo}">
-                                        <f:selectItem itemLabel="Teacher" itemValue="Teacher" />
-                                        <f:selectItem itemLabel="Student" itemValue="Student" />
-                                    </p:selectOneMenu>
-                                    <hr/>
-                                    <div class="clearfix w3-container w3-border-top w3-padding-16 w3-white">
-                                        <p:commandButton type="submit" action="#{list_Teacher.actualizar()}" class="w3-button w3-block w3-green w3-section w3-padding" value="Sign In"/>              
-                                        <label>
-                                            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"/> Remember me
-                                        </label>
-                                    </div>
-                                </div>
-                            </h:form>
+        <h:form class="w3-container">
+            <div class="w3-section">
+            <h:panelGrid columns="4">
+                <h:outputLabel value="Name"/>
+                <p:inputText placeholder="Enter Name" value="#{list_Teacher.persona.name}" id="name" class="w3-input"/> 
+                <label for="last_name"><b> Last name </b></label>               
+                    <p:inputText placeholder="Enter Last_Name" value="#{list_Teacher.persona.lastName}" id="last_name" class="w3-input"/>
+                <label for="id"><b>User name </b></label>
+                <br/>
+                    <p:inputText placeholder="Enter User_Name" value="#{list_Teacher.persona.id}" id="id"  class="w3-input"/>                
+                <label for="email"><b> Email </b></label>
+                <br/>
+                    <p:inputText placeholder="Enter Email" value="#{list_Teacher.persona.email}" id="email" class="w3-input"/>
+                <label for="psw"><b> Password </b></label>
+                <br/>
+                    <p:password placeholder="Enter Password" value="#{list_Teacher.persona.password}" id="psw" class="w3-input"/>  
+                <label for="psw-repeat"><b> Repeat Password </b></label>
+                <br/>
+                    <p:password placeholder="Repeat Password" value="#{list_Teacher.persona.RPassword}" id="psw-repeat" class="w3-input"/>
+                <label for="type_user"><b> Type of User </b></label>
+                <br/>
+                    <p:selectOneMenu class="w3-input" value="#{list_Teacher.persona.cargo}">
+                        <f:selectItem itemLabel="Teacher" itemValue="Teacher" />
+                        <f:selectItem itemLabel="Student" itemValue="Student" />
+                    </p:selectOneMenu>                
+                <br/>
+                <p:commandButton type="submit" action="#{list_Teacher.actualizar    ()}" class="w3-button w3-block w3-green w3-section w3-padding" value="Sign In"/>
+            </h:panelGrid>
+            </div>
+        </h:form>
                         </div>
                     </div> <!--Final Sign up-->
-
                 </div>
-
-                <!--Student -->
-            </div> <!-- End Middle Column -->
+            </div> <!-- End Teacher-->
+            
+        <!-- End Middle Column -->
 
 
 

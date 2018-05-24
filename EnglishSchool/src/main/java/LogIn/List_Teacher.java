@@ -91,7 +91,7 @@ public class List_Teacher implements Serializable {
             p = new Profesor(user);
             hibernateSession.save(user);
             hibernateSession.save(p);
-        } 
+        }
         hibernateSession.getTransaction().commit();
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registro exitoso", "Inicie sesión para comenzar");
         PrimeFaces.current().dialog().showMessageDynamic(message);
@@ -122,6 +122,10 @@ public class List_Teacher implements Serializable {
     public String editAction(Usuarios u) {
         u.setEditable(true);
         return null;
+    }
+    public void agregarPersona(){
+        System.out.println(this.persona.getEmail());
+        this.lstpersona.add(this.persona);
     }
 
 }

@@ -41,16 +41,15 @@ Contributor(s):
 -->
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/proyectowad?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">6573</property>
-    <property name="hibernate.connection.pool_size">20</property>
-    <mapping resource="entity/Administrador.hbm.xml"/>
-    <mapping resource="entity/Rol.hbm.xml"/>
-    <mapping resource="entity/Alumno.hbm.xml"/>
-    <mapping resource="entity/Profesor.hbm.xml"/>
     <mapping resource="entity/Usuarios.hbm.xml"/>
+    <mapping resource="entity/Alumno.hbm.xml"/>
+    <mapping resource="entity/Administrador.hbm.xml"/>
+    <mapping resource="entity/Profesor.hbm.xml"/>
+    <mapping resource="entity/Rol.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

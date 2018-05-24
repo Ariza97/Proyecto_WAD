@@ -41,26 +41,25 @@
             </div><!-- End Left Column -->
 
             <!--Middle paga-->
-            <br/>
-            <!--Teacher -->
             <div class="w3-col m9">
+            <!--Teacher -->
                 <div class="w3-row-padding">
                     <div class="w3-col m12">
                         <div class="w3-card w3-round w3-white w3-button w3-block w3-theme-l1 w3-left-align">
                             <h2><strong><i class="fa fa-group"> List of teachers at school</i></strong></h2>
                             <a onclick="document.getElementById('SignIn').style.display = 'block'">
-                                <button class="w3-btn w3-white w3-border w3-border-red w3-text-red w3-round-large">
-                                    <i class="fa fa-plus-square" style="color:red"></i>
+                                <button class="w3-btn w3-white w3-border w3-border-blue w3-text-blue w3-round-large">
+                                    <i class="fa fa-plus-square" style="color:blue"></i>
                                     Add new           
                                 </button>
                             </a>
-                            <button onclick="document.getElementById('ListTeacher').style.display = 'none'" class="w3-btn w3-white w3-border w3-border-red w3-text-red w3-round-large">
-                                <i class="fa fa-eye" style="color:red"></i>
-                                Hide all
-                            </button>
-                            <button onclick="myFunction('ListTeacher')" class="w3-btn w3-white w3-border w3-border-red w3-text-red w3-round-large">
-                                <i class="fa fa-eye" style="color:red"></i>
+                            <button onclick="myFunction('ListTeacher')" class="w3-btn w3-white w3-border w3-border-blue w3-text-blue w3-round-large">
+                                <i class="fa fa-eye" style="color:blue"></i>
                                 Show all
+                            </button>
+                            <button onclick="document.getElementById('ListTeacher').style.display = 'none'" class="w3-btn w3-white w3-border w3-border-blue w3-text-blue w3-round-large">
+                                <i class="fa fa-eye-slash" style="color:blue"></i>
+                                Hide all
                             </button>
                             <hr/>
                             <h:form  id="ListTeacher" class="w3-container">
@@ -78,12 +77,15 @@
                                         <h:inputText value="#{teacher.idLog}" size="15" rendered="#{teacher.editable}" />
                                         <p:outputLabel value="#{teacher.idLog}" rendered="#{not teacher.editable}"/>
                                     </p:column>
+                                    <p:column headerText="Groups">
+                                        <h:inputText value="#{teacher.idLog}" size="15" rendered="#{teacher.editable}" />
+                                        <p:outputLabel value="#{teacher.idLog}" rendered="#{not teacher.editable}"/>
+                                    </p:column>
                                     <p:column headerText="Modify">
+                                        <i class="fa fa-pencil-square-o w3-align-left" style="font-size:18px;color:green">
                                         <h:commandLink value=" Modify" action="#{list_Teacher.editAction(teacher)}" rendered="#{not teacher.editable}" />
-                                        <i class="fa fa-pencil-square-o w3-align-left" style="font-size:18px;color:red">
-                                        </i>                                        
                                         <h:commandLink value=" Save" action="#{list_Teacher.guardar(teacher)}" rendered="#{teacher.editable}" />
-
+                                        </i>                                        
                                     </p:column>
                                     <p:column headerText="Delete">
                                         <i class="fa fa-eraser button" style="font-size:18px;color:red">
@@ -99,49 +101,130 @@
                     <br/><br/>
                     <!--Sign up-->
                     <div id="SignIn" class="w3-modal w3-animate-opacity ">
-                        <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-grey w3-border w3-border-red" style="max-width:700px">
+                        <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-grey w3-border w3-border-blue" style="max-width:740px">
                             <div class="w3-center"><br/>
                                 <span onclick="document.getElementById('SignIn').style.display = 'none'" class="w3-button w3-large w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                             </div>
         <h:form class="w3-container">
+            <h2><strong><i class="fa fa-plus-square" style="color:blue">&nbsp;Adding new user</i></strong></h2>
             <div class="w3-section">
             <h:panelGrid columns="4">
                 <h:outputLabel value="Name"/>
-                <p:inputText placeholder="Enter Name" value="#{list_Teacher.persona.name}" id="name" class="w3-input"/> 
-                <label for="last_name"><b> Last name </b></label>               
+                    <p:inputText placeholder="Enter Name" value="#{list_Teacher.persona.name}" id="name" class="w3-input"/> 
+                <h:outputLabel value="&emsp;&emsp;Last name "/>              
                     <p:inputText placeholder="Enter Last_Name" value="#{list_Teacher.persona.lastName}" id="last_name" class="w3-input"/>
-                <label for="id"><b>User name </b></label>
-                <br/>
-                    <p:inputText placeholder="Enter User_Name" value="#{list_Teacher.persona.id}" id="id"  class="w3-input"/>                
-                <label for="email"><b> Email </b></label>
-                <br/>
+                <h:outputLabel value="User name "/>
+                    <p:inputText placeholder=" Enter User_Name" value="#{list_Teacher.persona.id}" id="id"  class="w3-input"/>                
+                <h:outputLabel value="&emsp;&emsp;Email "/>
                     <p:inputText placeholder="Enter Email" value="#{list_Teacher.persona.email}" id="email" class="w3-input"/>
-                <label for="psw"><b> Password </b></label>
-                <br/>
-                    <p:password placeholder="Enter Password" value="#{list_Teacher.persona.password}" id="psw" class="w3-input"/>  
-                <label for="psw-repeat"><b> Repeat Password </b></label>
-                <br/>
+                <h:outputLabel value="Password "/>
+                    <p:password placeholder="Enter Password" value="#{list_Teacher.persona.password}" id="psw" class="w3-input"/>
+                    <h:outputLabel value="&emsp;&emsp;Repeat Password &nbsp;"/>
                     <p:password placeholder="Repeat Password" value="#{list_Teacher.persona.RPassword}" id="psw-repeat" class="w3-input"/>
-                <label for="type_user"><b> Type of User </b></label>
-                <br/>
+                <h:outputLabel value="Type of User "/>
                     <p:selectOneMenu class="w3-input" value="#{list_Teacher.persona.cargo}">
                         <f:selectItem itemLabel="Teacher" itemValue="Teacher" />
                         <f:selectItem itemLabel="Student" itemValue="Student" />
-                    </p:selectOneMenu>                
+                    </p:selectOneMenu>  
                 <br/>
-                <p:commandButton type="submit" action="#{list_Teacher.actualizar    ()}" class="w3-button w3-block w3-green w3-section w3-padding" value="Sign In"/>
+                <p:commandButton type="submit" action="#{list_Teacher.actualizar()}" class="w3-button w3-block w3-green w3-section w3-padding" value="Sign In"/>
             </h:panelGrid>
             </div>
         </h:form>
                         </div>
                     </div> <!--Final Sign up-->
-                </div>
-            </div> <!-- End Teacher-->
-            
-        <!-- End Middle Column -->
+                </div><!-- End Teacher-->  
 
+            <!--Student -->
+                <div class="w3-row-padding">
+                    <div class="w3-col m12">
+                        <div class="w3-card w3-round w3-white w3-button w3-block w3-theme-l1 w3-left-align">
+                            <h2><strong><i class="fa fa-group"> List of students at school</i></strong></h2>
+                            <a onclick="document.getElementById('SignInStudent').style.display = 'block'">
+                                <button class="w3-btn w3-white w3-border w3-border-blue w3-text-blue w3-round-large">
+                                    <i class="fa fa-plus-square" style="color:blue"></i>
+                                    Add new           
+                                </button>
+                            </a>
+                            <button onclick="myFunction('ListStudent')" class="w3-btn w3-white w3-border w3-border-blue w3-text-blue w3-round-large">
+                                <i class="fa fa-eye" style="color:blue"></i>
+                                Show all
+                            </button>
+                            <button onclick="document.getElementById('ListStudent').style.display = 'none'" class="w3-btn w3-white w3-border w3-border-blue w3-text-blue w3-round-large">
+                                <i class="fa fa-eye-slash" style="color:blue"></i>
+                                Hide all
+                            </button>
+                            <hr/>
+                            <h:form  id="ListStudent" class="w3-container">
+                                <p:dataTable  value="#{list_Student.lstpersona}" 
+                                              var="student">
+                                    <p:column headerText= "First name">
+                                        <h:inputText value="#{student.nombre}" size="15" rendered="#{student.editable}" />
+                                        <p:outputLabel value="#{student.nombre}" rendered="#{not student.editable}"/>
+                                    </p:column>
+                                    <p:column headerText="Last name">
+                                        <h:inputText value="#{student.apellido}" size="15" rendered="#{student.editable}" />
+                                        <p:outputLabel value="#{student.apellido}" rendered="#{not student.editable}"/>
+                                    </p:column>
+                                    <p:column headerText="Id">
+                                        <h:inputText value="#{student.idLog}" size="15" rendered="#{student.editable}" />
+                                        <p:outputLabel value="#{student.idLog}" rendered="#{not student.editable}"/>
+                                    </p:column>
+                                    <p:column headerText="Modify">
+                                        <i class="fa fa-pencil-square-o w3-align-left" style="font-size:18px;color:green">
+                                            <h:commandLink value=" Modify" action="#{list_Student.editAction(teacher)}" rendered="#{not student.editable}" />
+                                            <h:commandLink value=" Save" action="#{list_Student.guardar(teacher)}" rendered="#{student.editable}" />
+                                        </i>                                        
+                                    </p:column>
+                                    <p:column headerText="Delete">
+                                        <i class="fa fa-eraser button" style="font-size:18px;color:red">
+                                            <h:commandLink value=" Delete" action="#{list_Student.eliminarPersona(student.idUsuarios)}"/>
+                                        </i>
+                                    </p:column>
+                                </p:dataTable>
+                                <br/>
+                            </h:form>
 
+                    <!--Sign up-->
+                    <div id="SignInStudent" class="w3-modal w3-animate-opacity ">
+                        <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-grey w3-border w3-border-blue" style="max-width:740px">
+                            <div class="w3-center"><br/>
+                                <span onclick="document.getElementById('SignInStudent').style.display = 'none'" class="w3-button w3-large w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                            </div>
+        <h:form class="w3-container">
+            <h2><strong><i class="fa fa-plus-square" style="color:blue">&nbsp;Adding new user</i></strong></h2>
+            <div class="w3-section">
+            <h:panelGrid columns="4">
+                <h:outputLabel value="Name"/>
+                <p:inputText placeholder="Enter Name" value="#{list_Student.persona.name}" id="name" class="w3-input"/> 
+                <h:outputLabel value="&emsp;&emsp;Last name "/>              
+                    <p:inputText placeholder="Enter Last_Name" value="#{list_Student.persona.lastName}" id="last_name" class="w3-input"/>
+                <h:outputLabel value="User name "/>
+                    <p:inputText placeholder=" Enter User_Name" value="#{list_Student.persona.id}" id="id"  class="w3-input"/>                
+                <h:outputLabel value="&emsp;&emsp;Email "/>
+                    <p:inputText placeholder="Enter Email" value="#{list_Student.persona.email}" id="email" class="w3-input"/>
+                <h:outputLabel value="Password "/>
+                    <p:password placeholder="Enter Password" value="#{list_Student.persona.password}" id="psw" class="w3-input"/>
+                    <h:outputLabel value="&emsp;&emsp;Repeat Password &nbsp;"/>
+                    <p:password placeholder="Repeat Password" value="#{list_Student.persona.RPassword}" id="psw-repeat" class="w3-input"/>
+                <h:outputLabel value="Type of User "/>
+                    <p:selectOneMenu class="w3-input" value="#{list_Student.persona.cargo}">
+                        <f:selectItem itemLabel="Teacher" itemValue="Teacher" />
+                        <f:selectItem itemLabel="Student" itemValue="Student" />
+                    </p:selectOneMenu>  
+                <br/>
+                <p:commandButton type="submit" action="#{list_Student.actualizar()}" class="w3-button w3-block w3-green w3-section w3-padding" value="Sign In"/>
+            </h:panelGrid>
+            </div>
+        </h:form>
+                        </div>
+                    </div> <!--Final Sign up Student-->
+                        </div>
+                    </div>
+                </div><!-- End Student-->            
 
+            </div> <!-- End Middle Column -->
+        
         </div><!-- End Page Container -->
         <br/>
 

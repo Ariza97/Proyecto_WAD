@@ -36,9 +36,7 @@ public class LogIn_Bean implements Serializable {
         Usuarios user;
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
         hibernateSession.beginTransaction();
-        request.getSession().removeAttribute("sesionusuario");
-        request.getSession().removeAttribute("nombre");
-        request.getSession().removeAttribute("mail");
+
         if (psw.equals("") || id.equals("")) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Revisar", "Llenar ambos campos");
             PrimeFaces.current().dialog().showMessageDynamic(message);

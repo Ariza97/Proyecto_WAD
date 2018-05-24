@@ -39,7 +39,7 @@ public class List_Teacher implements Serializable {
         Usuarios user = (Usuarios) hibernateSession.load(Usuarios.class, id);
         hibernateSession.delete(user);
         t.commit();
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario profesor eliminado", "Revise cambios");
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Teacher deleted", "Review changed");
         PrimeFaces.current().dialog().showMessageDynamic(message);
         
         lstpersona.clear();
@@ -62,13 +62,23 @@ public class List_Teacher implements Serializable {
         guarda.setParameter("idLog", u.getIdLog());
         guarda.executeUpdate();
         t.commit();
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Modificacion realizada", "Revise cambios");
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Change saved", "Verify that all is okey");
         PrimeFaces.current().dialog().showMessageDynamic(message);
         return null;
     }
     
     public String actualizar(){
-
+        //Revisamos que todos los campos esten llenos
+        if (this.persona.getName().equals("") || this.persona.getLastName().equals("") || this.persona.getId().equals("") || this.persona.getEmail().equals("") || this.persona.getPassword().equals("") || this.persona.getRPassword().equals("")) {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Check", "All fields must be full");
+            PrimeFaces.current().dialog().showMessageDynamic(message);
+            return null;
+        } else if (!this.persona.getPassword().equals(this.persona.getRPassword())) {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Check", "The passwords doesn't coincide");
+            PrimeFaces.current().dialog().showMessageDynamic(message);
+            return null;
+        }
+        
         //Mandar los datos de ID, EMAIL a la clase de la base datos
         //para descartar la existencia de otro usuario con los mismos datos
         int estado = 7;
@@ -84,16 +94,32 @@ public class List_Teacher implements Serializable {
         consultaID = (Usuarios) hibernateSession.createQuery("from Usuarios where idLog = '" + this.persona.getId() + "'").uniqueResult();
         consultaM = (Usuarios) hibernateSession.createQuery("from Usuarios where correo = '" + this.persona.getEmail() + "'").uniqueResult();
 
-               System.out.println(this.persona.getCargo());
-
+        if (consultaID != null) {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Check", "This Id is used");
+            PrimeFaces.current().dialog().showMessageDynamic(message);
+            return null;
+        }
+        if (consultaM != null) {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Check", "This E-mail is used");
+            PrimeFaces.current().dialog().showMessageDynamic(message);
+            return null;
+        }
+        
         if (this.persona.getCargo().equals("Teacher")) {
             user = new Usuarios(TRol, this.persona.getName(), this.persona.getLastName(), this.persona.getId(), this.persona.getEmail(), this.persona.getPassword());
             p = new Profesor(user);
             hibernateSession.save(user);
             hibernateSession.save(p);
         }
+        else {
+            user = new Usuarios(SRol, this.persona.getName(), this.persona.getLastName(), this.persona.getId(), this.persona.getEmail(), this.persona.getPassword());
+            a = new Alumno(user);
+            hibernateSession.save(user);
+            hibernateSession.save(a);
+        }
+        
         hibernateSession.getTransaction().commit();
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registro exitoso", "Inicie sesión para comenzar");
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Register Succesfuly", "Reload the page");
         PrimeFaces.current().dialog().showMessageDynamic(message);
 
         lstpersona.clear();

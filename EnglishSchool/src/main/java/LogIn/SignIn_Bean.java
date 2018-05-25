@@ -21,8 +21,17 @@ public class SignIn_Bean implements Serializable {
     private String LastName;
     private String Id;
     private String Email;
+    private String Group;
     private String Password, RPassword;
     private String Cargo;
+
+    public String getGroup() {
+        return Group;
+    }
+
+    public void setGroup(String Group) {
+        this.Group = Group;
+    }
 
     public String getCargo() {
         return Cargo;
@@ -79,8 +88,6 @@ public class SignIn_Bean implements Serializable {
     public void setRPassword(String RPassword) {
         this.RPassword = RPassword;
     }
-
-
 
     public String validate() {
         //Revisamos que todos los campos esten llenos

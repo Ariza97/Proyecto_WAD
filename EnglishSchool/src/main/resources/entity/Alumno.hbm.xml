@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 16/05/2018 10:27:11 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 24/05/2018 03:21:54 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entity.Alumno" table="alumno" catalog="proyectowad" optimistic-lock="version">
         <id name="idUsuarios" type="int">
@@ -11,5 +11,27 @@
             </generator>
         </id>
         <one-to-one name="usuarios" class="entity.Usuarios" constrained="true"></one-to-one>
+        <set name="peticions" table="peticion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuarios" />
+            </key>
+            <one-to-many class="entity.Peticion" />
+        </set>
+        <set name="ejercicios" table="alumno_ejercicio" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuarios" not-null="true" />
+            </key>
+            <many-to-many entity-name="entity.Ejercicio">
+                <column name="idEjercicio" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="grupos" table="alumno_grupo" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuarios" not-null="true" />
+            </key>
+            <many-to-many entity-name="entity.Grupo">
+                <column name="idGrupo" not-null="true" />
+            </many-to-many>
+        </set>
     </class>
 </hibernate-mapping>

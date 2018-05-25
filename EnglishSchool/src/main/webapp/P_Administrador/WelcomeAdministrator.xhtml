@@ -78,8 +78,8 @@
                                         <p:outputLabel value="#{teacher.idLog}" rendered="#{not teacher.editable}"/>
                                     </p:column>
                                     <p:column headerText="Groups">
-                                        <h:inputText value="#{teacher.idLog}" size="15" rendered="#{teacher.editable}" />
-                                        <p:outputLabel value="#{teacher.idLog}" rendered="#{not teacher.editable}"/>
+                                        <h:inputText value="#{teacher.profesor.grupo}" size="15" rendered="#{teacher.editable}" />
+                                        <p:outputLabel value="#{teacher.profesor.grupo()}" rendered="#{not teacher.editable}"/>
                                     </p:column>
                                     <p:column headerText="Modify">
                                         <i class="fa fa-pencil-square-o w3-align-left" style="font-size:18px;color:green">

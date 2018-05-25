@@ -41,9 +41,16 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="proyectowad"/>
-  <table-filter match-name="rol"/>
-  <table-filter match-name="profesor"/>
   <table-filter match-name="usuarios"/>
-  <table-filter match-name="administrador"/>
+  <table-filter match-name="alumno_grupo"/>
+  <table-filter match-name="peticion"/>
+  <table-filter match-name="grupo_ejercicio"/>
+  <table-filter match-name="grupo"/>
+  <table-filter match-name="rol"/>
   <table-filter match-name="alumno"/>
+  <table-filter match-name="alumno_ejercicio"/>
+  <table-filter match-name="ejercicio"/>
+  <table-filter match-name="administrador"/>
+  <table-filter match-name="profesor"/>
+  <table-filter match-name="preejercicio"/>
 </hibernate-reverse-engineering>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2018 03:21:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Preejercicio" table="preejercicio" catalog="proyectowad" optimistic-lock="version">
+        <id name="idPreEjercicio" type="java.lang.Integer">
+            <column name="idPreEjercicio" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="profesor" class="entity.Profesor" fetch="select">
+            <column name="idUsuarios" />
+        </many-to-one>
+        <property name="datos" type="string">
+            <column name="datos" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

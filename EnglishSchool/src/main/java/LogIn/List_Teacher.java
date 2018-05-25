@@ -41,11 +41,9 @@ public class List_Teacher implements Serializable {
         t.commit();
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Teacher deleted", "Review changed");
         PrimeFaces.current().dialog().showMessageDynamic(message);
-        
         lstpersona.clear();
-        Query consulta = hibernateSession.createQuery("from Usuarios where idRol = 2");
+        Query consulta = hibernateSession.createQuery("from Usuarios where idRol=2");
         lstpersona = consulta.list();
-        
         return null;
     }
 
@@ -55,19 +53,26 @@ public class List_Teacher implements Serializable {
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
         Transaction t = hibernateSession.beginTransaction();
         String hql = "update Usuarios set nombre = :nombre, apellido = :apellido, idLog = :idLog where idUsuarios=" + u.getIdUsuarios() + "";
+        String hql2 = "update Grupo set idUsuarios = " + u.getIdUsuarios() + " where nombre = '" + u.getProfesor().getGrupo() + "'";
         System.out.println(hql);
+        System.out.println(hql2);
         Query guarda = hibernateSession.createQuery(hql);
+        Query guarda2 = hibernateSession.createQuery(hql2);
         guarda.setParameter("nombre", u.getNombre());
         guarda.setParameter("apellido", u.getApellido());
         guarda.setParameter("idLog", u.getIdLog());
         guarda.executeUpdate();
+        guarda2.executeUpdate();
         t.commit();
+        lstpersona.clear();
+        Query consulta = hibernateSession.createQuery("from Usuarios where idRol = 2");
+        lstpersona = consulta.list();
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Change saved", "Verify that all is okey");
         PrimeFaces.current().dialog().showMessageDynamic(message);
         return null;
     }
-    
-    public String actualizar(){
+
+    public String actualizar() {
         //Revisamos que todos los campos esten llenos
         if (this.persona.getName().equals("") || this.persona.getLastName().equals("") || this.persona.getId().equals("") || this.persona.getEmail().equals("") || this.persona.getPassword().equals("") || this.persona.getRPassword().equals("")) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Check", "All fields must be full");
@@ -78,7 +83,7 @@ public class List_Teacher implements Serializable {
             PrimeFaces.current().dialog().showMessageDynamic(message);
             return null;
         }
-        
+
         //Mandar los datos de ID, EMAIL a la clase de la base datos
         //para descartar la existencia de otro usuario con los mismos datos
         int estado = 7;
@@ -104,20 +109,19 @@ public class List_Teacher implements Serializable {
             PrimeFaces.current().dialog().showMessageDynamic(message);
             return null;
         }
-        
+
         if (this.persona.getCargo().equals("Teacher")) {
             user = new Usuarios(TRol, this.persona.getName(), this.persona.getLastName(), this.persona.getId(), this.persona.getEmail(), this.persona.getPassword());
             p = new Profesor(user);
             hibernateSession.save(user);
             hibernateSession.save(p);
-        }
-        else {
+        } else {
             user = new Usuarios(SRol, this.persona.getName(), this.persona.getLastName(), this.persona.getId(), this.persona.getEmail(), this.persona.getPassword());
             a = new Alumno(user);
             hibernateSession.save(user);
             hibernateSession.save(a);
         }
-        
+
         hibernateSession.getTransaction().commit();
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Register Succesfuly", "Reload the page");
         PrimeFaces.current().dialog().showMessageDynamic(message);
@@ -125,7 +129,7 @@ public class List_Teacher implements Serializable {
         lstpersona.clear();
         Query consulta = hibernateSession.createQuery("from Usuarios where idRol = 2");
         lstpersona = consulta.list();
-        
+
         return null;
     }
 
@@ -149,7 +153,8 @@ public class List_Teacher implements Serializable {
         u.setEditable(true);
         return null;
     }
-    public void agregarPersona(){
+
+    public void agregarPersona() {
         System.out.println(this.persona.getEmail());
         this.lstpersona.add(this.persona);
     }

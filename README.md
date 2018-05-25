@@ -17,5 +17,8 @@ Ya inicia sesion conforme a tipo de usuario, muestra nombre completo y ID. Falta
 # Login para alumno y profesor funcionando
 Falta terminar vista de profesor
 
-#Altas, bajas y cambios funcionando
+# Altas, bajas y cambios funcionando
 Da de alta, tiene detalles al mostrar la tabla cuando elimina, se debe actualizar. Modificaciones funcionan bien.
+
+# Agregados queries para insertar grupos sin profesor asignado.
+Al modificar grupo se debe escribir el nombre especificado en la DB.

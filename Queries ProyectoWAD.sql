@@ -195,4 +195,20 @@ select * from profes;
 select * from admins;
 select * from alumnos;
 
+/*Mostrar profesores con grupo */
+select u.idUsuarios,u.nombre,u.apellido,u.idLog,g.nombre 
+from usuarios u 
+inner join grupo g 
+on u.idUsuarios=g.idUsuarios;
 
+/*Insertar grupo sin profesor asignado*/
+insert into grupo(nombre,contraseña) values ('1CM1','e_1cm1AM');
+insert into grupo(nombre,contraseña) values ('1CM2','e_1cm2EW');
+insert into grupo(nombre,contraseña) values ('1CM3','e_1cm3FV');
+insert into grupo(nombre,contraseña) values ('1CM4','e_1cm4TR');
+insert into grupo(nombre,contraseña) values ('1CM5','e_1cm5YH');
+insert into grupo(nombre,contraseña) values ('1CM6','e_1cm6RT');
+
+
+/*Ver grupos. Los NULL significa que no tienen profesor asignado*/
+select * from grupo;

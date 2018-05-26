@@ -25,7 +25,7 @@ public class List_Teacher implements Serializable {
 
     //Con esta funcion la cargas de las personas que son maestros en la base de datos
     //y ya llenas la lista
-    public List_Teacher() {
+    public List_Teacher() {        
         Session hibernateSession;
         hibernateSession = HibernateUtil.getSessionFactory().openSession();
         Query consulta = hibernateSession.createQuery("from Usuarios where idRol = 2");

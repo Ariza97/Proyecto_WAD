@@ -45,7 +45,7 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/proyectowad?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">ale970807</property>
+    <property name="hibernate.connection.password">6573</property>
     <mapping resource="entity/Administrador.hbm.xml"/>
     <mapping resource="entity/Grupo.hbm.xml"/>
     <mapping resource="entity/Rol.hbm.xml"/>

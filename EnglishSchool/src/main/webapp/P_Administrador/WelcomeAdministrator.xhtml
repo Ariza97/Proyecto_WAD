@@ -38,6 +38,7 @@
                         <p><i class="fa fa-at fa-fw w3-margin-right w3-text-theme"></i> <h:outputText value="#{administrator_Bean.mail}"/></p>
                     </div>
                 </div>
+                <p:button></p:button>
             </div><!-- End Left Column -->
 
             <!--Middle paga-->
@@ -127,7 +128,8 @@
                         <f:selectItem itemLabel="Student" itemValue="Student" />
                     </p:selectOneMenu>  
                 <br/>
-                <p:commandButton type="submit" action="#{list_Teacher.actualizar()}" class="w3-button w3-block w3-green w3-section w3-padding" value="Sign In"/>
+                <h:commandLink value="Sign In" action="#{list_Teacher.actualizar()}" class="w3-button w3-block w3-green w3-section w3-padding"/>
+                
             </h:panelGrid>
             </div>
         </h:form>
@@ -213,7 +215,7 @@
                         <f:selectItem itemLabel="Student" itemValue="Student" />
                     </p:selectOneMenu>  
                 <br/>
-                <p:commandButton type="submit" action="#{list_Student.actualizar()}" class="w3-button w3-block w3-green w3-section w3-padding" value="Sign In"/>
+                <h:commandLink value="Sign In" action="#{list_Student.actualizar()}" class="w3-button w3-block w3-green w3-section w3-padding"/>                
             </h:panelGrid>
             </div>
         </h:form>

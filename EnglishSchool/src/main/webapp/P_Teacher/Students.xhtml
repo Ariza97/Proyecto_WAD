@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Students</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/css_index.css"></link>
+    </h:head>
+    
+<h:body class="w3-light-grey w3-content" style="max-width:1600px" >
+
+<!-- Top container -->
+<div class="w3-container w3-black" >
+    <!--Teahcer image-->
+    <p align="right"><span class="w3-tag w3-light-grey w3-medium w3-round w3-center"><strong>LogOut</strong></span>&ensp;<i class="fa fa-arrow-circle-right"></i>&emsp;</p>
+    <p align="center"><span  class="w3-tag w3-indigo w3-xxlarge w3-round w3-center">Students</span></p>
+    <h4 align="center"><span> Welcome teacher, <strong><h:outputText value="#{teacher_Bean.nombre}"/></strong></span></h4>
+</div>
+
+    <div class="w3-container w3-row" style="padding: 20px 0px 20px 50px">
+      <img src="../Pictures/avatar1.png" class="w3-circle w3-margin-right" style="width:100px"/>
+    </div>
+
+<!--Group-->
+
+    <div style="padding:10px 0px 20px 40px">
+        <div class="w3-tag w3-round w3-light-gray" style="padding:3px">
+            <div class="w3-tag w3-round w3-light-grey w3-large w3-text-orange">
+                <h3 style="font-size:30px;"><i class="fa fa-group"></i><b>&nbsp;Your group is: &emsp;</b></h3>
+            </div>
+        </div>
+    </div>
+
+
+<!--Table-->
+<div style="padding:0px 100px 0px 100px;">
+ 
+<table class="w3-table w3-bordered">
+    <tr>
+      <th style="background-color: darkcyan; color: azure"><i class="fa fa-vcard w3-large"></i>&nbsp;Name</th>
+      <th style="background-color: darkcyan; color: azure"><i class="fa fa-vcard-o w3-large"></i>&nbsp;Last Name</th>
+      <th style="background-color: darkcyan; color: azure"><i class="fa fa-user w3-large"></i>&nbsp;User Name</th>
+      <th style="background-color: darkcyan; color: azure"><i class="fa fa-envelope w3-large"></i>&nbsp;E-mail</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+    
+     <tr>
+      <td>Lucky</td>
+      <td>Ramírez</td>
+      <td>nariz1410</td>
+      <td>elpatanariz@hotmail.com</td>
+      <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green;align-content:center"></i> Modify</td>
+      <td><i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"></i> Delete</td>
+    </tr>
+        
+  </table>
+</div>
+
+<!--Footer-->
+<footer class="w3-container w3-light-grey" style="padding-left:30px; padding-top: 50px">
+    <p align="left"><span class="w3-tag w3-amber w3-medium w3-round w3-center w3-medium"><i class="fa fa-arrow-circle-left"></i>&ensp;<strong>Back to menu</strong></span>&emsp;</p>    
+</footer>
+
+    </h:body>
+</html>
+
+    

@@ -19,5 +19,12 @@ public class navigationBetweenPages {
         System.out.println("Cambiando a pagina WelcomeTeacher");
         return "WelcomeTeacher";
     }
-    
+    public String welcomeToStudents(){
+        System.out.println("Cambiando a pagina Students");
+        return "Students";
+    }
+    public String studentToWelcome(){
+        System.out.println("Cambiando a pagina WelcomeTeacher");
+        return "WelcomeTeacher";
+    }
 }

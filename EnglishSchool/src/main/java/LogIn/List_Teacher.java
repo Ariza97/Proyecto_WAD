@@ -10,13 +10,14 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.primefaces.PrimeFaces;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 
 public class List_Teacher implements Serializable {
 

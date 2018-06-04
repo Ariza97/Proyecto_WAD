@@ -174,8 +174,8 @@
                                     </p:column>
                                     <p:column headerText="Modify">
                                         <i class="fa fa-pencil-square-o w3-align-left" style="font-size:18px;color:green">
-                                            <h:commandLink value=" Modify" action="#{list_Student.editAction(teacher)}" rendered="#{not student.editable}" />
-                                            <h:commandLink value=" Save" action="#{list_Student.guardar(teacher)}" rendered="#{student.editable}" />
+                                            <h:commandLink value=" Modify" action="#{list_Student.editAction(student)}" rendered="#{not student.editable}" />
+                                            <h:commandLink value=" Save" action="#{list_Student.guardar(student)}" rendered="#{student.editable}" />
                                         </i>                                        
                                     </p:column>
                                     <p:column headerText="Delete">

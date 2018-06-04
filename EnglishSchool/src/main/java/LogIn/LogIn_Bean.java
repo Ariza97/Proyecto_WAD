@@ -51,7 +51,7 @@ public class LogIn_Bean implements Serializable {
             }
             tipo = user.getRol().getIdRol();
             request.getSession().setAttribute("sesionusuario", id);
-            nombre = ""+user.getNombre()+" "+user.getApellido();
+            nombre = ""+user.getNombre();
             request.getSession().setAttribute("nombre", nombre);
             mail = user.getCorreo();
             request.getSession().setAttribute("mail", mail);

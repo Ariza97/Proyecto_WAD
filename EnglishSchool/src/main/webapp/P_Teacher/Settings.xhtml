@@ -20,7 +20,7 @@
     <!--Teahcer image-->
     <p align="right"><span class="w3-tag w3-light-grey w3-medium w3-round w3-center"><strong>LogOut</strong></span>&ensp;<i class="fa fa-arrow-circle-right"></i>&emsp;</p>
     <p align="center"><span  class="w3-tag w3-red w3-xxlarge w3-round w3-center">Settings</span></p>
-    <h4 align="center"><span> Welcome teacher, <strong><h:outputText value="#{teacher_Bean.nombre}"/></strong></span></h4>
+    <h4 align="center"><span> Welcome teacher, <strong><h:outputText value="#{settingTeacher.nombre}"/></strong></span></h4>
 </div>
 
     <div class="w3-container w3-row" style="padding: 20px 0px 20px 50px">
@@ -30,44 +30,91 @@
 
 <!--Table-->
 <div style="padding:0px 400px 0px 400px;">
- 
-<table class="w3-table w3-bordered">
-    <tr>
-      <th><i class="fa fa-vcard w3-large"></i>&ensp;Name</th>
-      <th>&nbsp;Arístides</th>
-      <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green;align-content:center"></i> Modify</td>
-    </tr>
-    
-    <tr>
-      <th><i class="fa fa-vcard-o w3-large"></i>&ensp;Last Name</th>
-      <th>&nbsp;Ariza</th>
-      <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green;align-content:center"></i> Modify</td>
-    </tr>
-    
-    <tr>
-      <th><i class="fa fa-user w3-large"></i>&ensp;User Name</th>
-      <th>&nbsp;aris</th>
-      <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green;align-content:center"></i> Modify</td>
-    </tr>
-
-    <tr>
-      <th><i class="fa fa-key w3-large"></i>&ensp;Password</th>
-      <th>&nbsp;aris</th>
-      <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green;align-content:center"></i> Modify</td>
-    </tr>
-    
-    <tr>
-      <th><i class="fa fa-envelope w3-large"></i>&ensp;Email</th>
-      <th>&nbsp;aris@gmail.com</th>
-      <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green;align-content:center"></i> Modify</td>
-    </tr>
-        
-  </table>
+    <h:form  id="ListTeacher" class="w3-container">
+        <p:panelGrid>
+            <p:row>
+                <p:column>
+                    <i class="fa fa-vcard w3-large"></i>&ensp;Name
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{settingTeacher.NProfesor.name}"/>
+                </p:column>
+                <p:column>
+                    <i class="fa fa-pencil-square-o w3-align-left" style="font-size:18px;color:green">
+                    <h:commandLink value=" Modify"/>
+                    </i>                                        
+                </p:column>
+            </p:row>
+            <p:row>
+               <p:column>
+                    <i class="fa fa-vcard w3-large"></i>&ensp;Last Name
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{settingTeacher.NProfesor.last_name}"/>
+                </p:column>
+                <p:column>
+                    <i class="fa fa-pencil-square-o w3-align-left" style="font-size:18px;color:green">
+                    <h:commandLink value=" Modify"/>
+                    </i>                                        
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column>
+                        <i class="fa fa-user w3-large"></i>&ensp;User Name
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{settingTeacher.NProfesor.user_name}"/>
+                </p:column>
+                <p:column>
+                    <i class="fa fa-pencil-square-o w3-align-left" style="font-size:18px;color:green">
+                    <h:commandLink value=" Modify"/>
+                    </i>                                        
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column>
+                        <i class="fa fa-user w3-large"></i>&ensp;Password
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{settingTeacher.NProfesor.password}"/>
+                </p:column>
+                <p:column>
+                    <i class="fa fa-pencil-square-o w3-align-left" style="font-size:18px;color:green">
+                    <h:commandLink value=" Modify"/>
+                    </i>                                        
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column>
+                        <i class="fa fa-user w3-large"></i>&ensp;Email
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{settingTeacher.NProfesor.email}"/>
+                </p:column>
+                <p:column>
+                    <i class="fa fa-pencil-square-o w3-align-left" style="font-size:18px;color:green">
+                    <h:commandLink value=" Modify"/>
+                    </i>                                        
+                </p:column>
+            </p:row>
+        </p:panelGrid>
+        <br/>
+    </h:form> 
 </div>
 
 <!--Footer-->
 <footer class="w3-container w3-light-grey" style="padding-left:30px; padding-top: 50px">
-    <p align="left"><span class="w3-tag w3-amber w3-medium w3-round w3-center w3-medium"><i class="fa fa-arrow-circle-left"></i>&ensp;<strong>Back to menu</strong></span>&emsp;</p>    
+    <p align="left">
+        <h:form>
+        <span class="w3-tag w3-amber w3-medium w3-round w3-center w3-medium">
+            <h:commandLink action="#{navigationBetweenPages.settingsToWelcome()}">
+            <i class="fa fa-arrow-circle-left">
+                <strong> Back to menu</strong>
+            </i>
+            </h:commandLink>
+        </span>&emsp;
+        </h:form>
+    </p>    
 </footer>
 
     </h:body>

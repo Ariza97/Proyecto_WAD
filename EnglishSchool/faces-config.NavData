@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
-    <Scope Scope="Project"/>
-    <Scope Scope="All Faces Configurations"/>
+    <Scope Scope="Project">
+        <Node id="C:/Users/Ariza/Documents/Programacion/Web Application Development (2)/Proyecto_WAD/EnglishSchool/src/main/webapp/P_Teacher/Students.xhtml" x="1067" y="458" zoom="true"/>
+        <Node id="C:/Users/Ariza/Documents/Programacion/Web Application Development (2)/Proyecto_WAD/EnglishSchool/src/main/webapp/P_Teacher/WelcomeTeacher.xhtml" x="56" y="235" zoom="false"/>
+        <Node id="C:/Users/Ariza/Documents/Programacion/Web Application Development (2)/Proyecto_WAD/EnglishSchool/src/main/webapp/P_Alumnos/WelcomeStudents.xhtml" x="78" y="951" zoom="true"/>
+        <Node id="C:/Users/Ariza/Documents/Programacion/Web Application Development (2)/Proyecto_WAD/EnglishSchool/src/main/webapp/P_Administrador/WelcomeAdministrator.xhtml" x="64" y="99" zoom="true"/>
+        <Node id="C:/Users/Ariza/Documents/Programacion/Web Application Development (2)/Proyecto_WAD/EnglishSchool/src/main/webapp/P_Teacher/Settings.xhtml" x="70" y="742" zoom="true"/>
+        <Node id="C:/Users/Ariza/Documents/Programacion/Web Application Development (2)/Proyecto_WAD/EnglishSchool/src/main/webapp/P_Teacher/Exercises.xhtml" x="2098" y="457" zoom="false"/>
+        <Node id="C:/Users/Ariza/Documents/Programacion/Web Application Development (2)/Proyecto_WAD/EnglishSchool/src/main/webapp/index.xhtml" x="67" y="25" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations">
+        <Node id="C:/Users/Ariza/Documents/Programacion/Web Application Development (2)/Proyecto_WAD/EnglishSchool/src/main/webapp/P_Teacher/Settings.xhtml" x="51" y="456" zoom="true"/>
+        <Node id="Settings.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="C:/Users/Ariza/Documents/Programacion/Web Application Development (2)/Proyecto_WAD/EnglishSchool/src/main/webapp/P_Teacher/WelcomeTeacher.xhtml" x="56" y="235" zoom="true"/>
+        <Node id="WelcomeTeacher.xhtml" x="150" y="150" zoom="true"/>
+    </Scope>
 </Scene>

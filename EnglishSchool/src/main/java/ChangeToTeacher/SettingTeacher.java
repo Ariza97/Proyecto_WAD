@@ -3,48 +3,65 @@ package ChangeToTeacher;
 import entity.HibernateUtil;
 import entity.Usuarios;
 import java.io.Serializable;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
+import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.primefaces.PrimeFaces;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 
-public class SettingTeacher implements Serializable{
-    private Profesor NProfesor =new Profesor();
+public class SettingTeacher implements Serializable {
+
+    private Usuarios NProfesor;
     private final FacesContext fc;
     private final HttpServletRequest request;
     private String id;
     private String nombre;
-    
-    public SettingTeacher(){
+
+    public SettingTeacher() {
         fc = FacesContext.getCurrentInstance();
         request = (HttpServletRequest) fc.getExternalContext().getRequest();
         if (request.getSession().getAttribute("sesionusuario") != null) {
             id = (String) request.getSession().getAttribute("sesionusuario");
             nombre = (String) request.getSession().getAttribute("nombre");
         }
-        
-        System.out.println("Nombre: "+nombre);
-        NProfesor.setName("Aris");
-        NProfesor.setLast_name("Ariza");
-        NProfesor.setUser_name("IdMalo");
-        NProfesor.setPassword("123");
-        NProfesor.setEmail("ariza@gmail.com");
-        //Session hibernateSession;
-        //Usuarios user;
-        //hibernateSession = HibernateUtil.getSessionFactory().openSession();
-        //hibernateSession.beginTransaction();
-        //    user = (Usuarios) hibernateSession.createQuery("from Usuarios where nombre = '" + name + "'");
+        String hql = "from Usuarios where idLog = '" + id + "' ";
+        Session hibernateSession;
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = hibernateSession.beginTransaction();
+        this.NProfesor = (Usuarios) hibernateSession.createQuery(hql).uniqueResult();
+        System.out.println(hql);
+        t.commit();
     }
 
-    public Profesor getNProfesor() {
+    public String saveChanges(Usuarios u) {
+        u.setEditable(false);
+        Session hibernateSession;
+        hibernateSession = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = hibernateSession.beginTransaction();
+        String hql = "update Usuarios set nombre = :nombre, apellido = :apellido, idLog = :idLog, correo = :correo, contraseña = :contraseña where idUsuarios=" + u.getIdUsuarios() + "";
+        Query guarda = hibernateSession.createQuery(hql);
+        guarda.setParameter("nombre", u.getNombre());
+        guarda.setParameter("apellido", u.getApellido());
+        guarda.setParameter("idLog", u.getIdLog());
+        guarda.setParameter("correo", u.getCorreo());
+        guarda.setParameter("contraseña", u.getContraseña());
+        guarda.executeUpdate();
+        t.commit();
+        return null;
+    }
+
+    public Usuarios getNProfesor() {
         return NProfesor;
     }
 
-    public void setNProfesor(Profesor NProfesor) {
+    public void setNProfesor(Usuarios NProfesor) {
         this.NProfesor = NProfesor;
     }
 
@@ -63,6 +80,9 @@ public class SettingTeacher implements Serializable{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    
+
+    public String editAction(Usuarios u) {
+        u.setEditable(true);
+        return null;
+    }
 }

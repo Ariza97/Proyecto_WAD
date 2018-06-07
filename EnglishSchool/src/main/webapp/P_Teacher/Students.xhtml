@@ -52,30 +52,16 @@
                         </button>
                         <hr/>
                         <h:form  id="ListStudent" class="w3-container">
-                            <p:dataTable  value="#{list_Student.lstpersona}" 
+                            <p:dataTable  value="#{groupStudents.lstStudents}" 
                                           var="student">
                                 <p:column headerText= "First name">
-                                    <h:inputText value="#{student.nombre}" size="15" rendered="#{student.editable}" />
-                                    <p:outputLabel value="#{student.nombre}" rendered="#{not student.editable}"/>
+                                    <p:outputLabel value="#{student.nombre}" />
                                 </p:column>
                                 <p:column headerText="Last name">
-                                    <h:inputText value="#{student.apellido}" size="15" rendered="#{student.editable}" />
-                                    <p:outputLabel value="#{student.apellido}" rendered="#{not student.editable}"/>
+                                    <p:outputLabel value="#{student.apellido}" />
                                 </p:column>
                                 <p:column headerText="Id">
-                                    <h:inputText value="#{student.idLog}" size="15" rendered="#{student.editable}" />
-                                    <p:outputLabel value="#{student.idLog}" rendered="#{not student.editable}"/>
-                                </p:column>
-                                <p:column headerText="Modify">
-                                    <i class="fa fa-pencil-square-o w3-align-left" style="font-size:18px;color:green">
-                                        <h:commandLink value=" Modify" action="#{list_Student.editAction(student)}" rendered="#{not student.editable}" />
-                                        <h:commandLink value=" Save" action="#{list_Student.guardar(student)}" rendered="#{student.editable}" />
-                                    </i>                                        
-                                </p:column>
-                                <p:column headerText="Delete">
-                                    <i class="fa fa-eraser button" style="font-size:18px;color:red">
-                                        <h:commandLink value=" Delete" action="#{list_Student.eliminarPersona(student.idUsuarios)}"/>
-                                    </i>
+                                    <p:outputLabel value="#{student.idLog}"/>
                                 </p:column>
                             </p:dataTable>
                             <br/>

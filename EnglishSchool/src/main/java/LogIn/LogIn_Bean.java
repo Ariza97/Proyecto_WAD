@@ -1,5 +1,6 @@
 package LogIn;
 
+import entity.Grupo;
 import entity.HibernateUtil;
 import entity.Usuarios;
 import java.io.Serializable;
@@ -59,6 +60,9 @@ public class LogIn_Bean implements Serializable {
                 case 1:
                     return "P_Administrador/WelcomeAdministrator"; 
                 case 2:
+                    Grupo g = (Grupo) hibernateSession.createQuery("from Grupo where idUsuarios = " + user.getIdUsuarios() + "").uniqueResult();
+                    String grupo = g.getNombre();
+                    request.getSession().setAttribute("grupo", grupo);
                     return "P_Teacher/WelcomeTeacher";
                 case 3:
                     return "P_Alumnos/WelcomeStudents";

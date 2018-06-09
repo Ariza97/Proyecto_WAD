@@ -15,6 +15,7 @@ public class Teacher_Bean implements Serializable {
     private final HttpServletRequest request;
     private String id;
     private String nombre;
+    private String grupo;
 
     public Teacher_Bean() {
         fc = FacesContext.getCurrentInstance();
@@ -22,6 +23,7 @@ public class Teacher_Bean implements Serializable {
         if (request.getSession().getAttribute("sesionusuario") != null) {
             id = (String) request.getSession().getAttribute("sesionusuario");
             nombre = (String) request.getSession().getAttribute("nombre");
+            grupo = (String) request.getSession().getAttribute("grupo");
         }
     }
 
@@ -39,6 +41,14 @@ public class Teacher_Bean implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
     }
 
 }

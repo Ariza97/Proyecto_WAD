@@ -35,13 +35,7 @@
             <div class="w3-row-padding">
                 <div class="w3-col m12">
                     <div class="w3-card w3-round w3-white w3-button w3-block w3-theme-l1 w3-left-align">
-                        <h2><strong><i class="fa fa-group"> List of students at school</i></strong></h2>
-                        <a onclick="document.getElementById('SignInStudent').style.display = 'block'">
-                            <button class="w3-btn w3-white w3-border w3-border-blue w3-text-blue w3-round-large">
-                                <i class="fa fa-plus-square" style="color:blue"></i>
-                                Add new           
-                            </button>
-                        </a>
+                        <h2><strong><i class="fa fa-group"> List of students at group <h:outputText value="#{groupStudents.grupo}"/></i></strong></h2>
                         <button onclick="myFunction('ListStudent')" class="w3-btn w3-white w3-border w3-border-blue w3-text-blue w3-round-large">
                             <i class="fa fa-eye" style="color:blue"></i>
                             Show all
@@ -54,53 +48,25 @@
                         <h:form  id="ListStudent" class="w3-container">
                             <p:dataTable  value="#{groupStudents.lstStudents}" 
                                           var="student">
-                                <p:column headerText= "First name">
+                                <p:column headerText= "ID">
+                                    <p:outputLabel value="#{student.idUsuarios}" />
+                                </p:column>
+                                <p:column headerText="Name">
                                     <p:outputLabel value="#{student.nombre}" />
                                 </p:column>
-                                <p:column headerText="Last name">
-                                    <p:outputLabel value="#{student.apellido}" />
+                                <p:column headerText="Last Name">
+                                    <p:outputLabel value="#{student.apellido}"/>
                                 </p:column>
-                                <p:column headerText="Id">
+                                <p:column headerText="Email">
+                                    <p:outputLabel value="#{student.correo}"/>
+                                </p:column>
+                                <p:column headerText="IdLog">
                                     <p:outputLabel value="#{student.idLog}"/>
                                 </p:column>
                             </p:dataTable>
                             <br/>
                         </h:form>
 
-                        <!--Sign up-->
-                        <div id="SignInStudent" class="w3-modal w3-animate-opacity ">
-                            <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-grey w3-border w3-border-blue" style="max-width:740px">
-                                <div class="w3-center"><br/>
-                                    <span onclick="document.getElementById('SignInStudent').style.display = 'none'" class="w3-button w3-large w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                                </div>
-                                <h:form class="w3-container">
-                                    <h2><strong><i class="fa fa-plus-square" style="color:blue">&nbsp;Adding new user</i></strong></h2>
-                                    <div class="w3-section">
-                                        <h:panelGrid columns="4">
-                                            <h:outputLabel value="Name"/>
-                                            <p:inputText placeholder="Enter Name" value="#{list_Student.persona.name}" id="name" class="w3-input"/> 
-                                            <h:outputLabel value="&emsp;&emsp;Last name "/>              
-                                            <p:inputText placeholder="Enter Last_Name" value="#{list_Student.persona.lastName}" id="last_name" class="w3-input"/>
-                                            <h:outputLabel value="User name "/>
-                                            <p:inputText placeholder=" Enter User_Name" value="#{list_Student.persona.id}" id="id"  class="w3-input"/>                
-                                            <h:outputLabel value="&emsp;&emsp;Email "/>
-                                            <p:inputText placeholder="Enter Email" value="#{list_Student.persona.email}" id="email" class="w3-input"/>
-                                            <h:outputLabel value="Password "/>
-                                            <p:password placeholder="Enter Password" value="#{list_Student.persona.password}" id="psw" class="w3-input"/>
-                                            <h:outputLabel value="&emsp;&emsp;Repeat Password &nbsp;"/>
-                                            <p:password placeholder="Repeat Password" value="#{list_Student.persona.RPassword}" id="psw-repeat" class="w3-input"/>
-                                            <h:outputLabel value="Type of User "/>
-                                            <p:selectOneMenu class="w3-input" value="#{list_Student.persona.cargo}">
-                                                <f:selectItem itemLabel="Teacher" itemValue="Teacher" />
-                                                <f:selectItem itemLabel="Student" itemValue="Student" />
-                                            </p:selectOneMenu>  
-                                            <br/>
-                                            <h:commandLink value="Sign In" action="#{list_Student.actualizar()}" class="w3-button w3-block w3-green w3-section w3-padding"/>                
-                                        </h:panelGrid>
-                                    </div>
-                                </h:form>
-                            </div>
-                        </div> <!--Final Sign up Student-->
                     </div>
                 </div>
             </div><!-- End Student-->            

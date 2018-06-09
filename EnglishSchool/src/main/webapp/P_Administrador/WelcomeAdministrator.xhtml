@@ -38,7 +38,7 @@
                         <p><i class="fa fa-at fa-fw w3-margin-right w3-text-theme"></i> <h:outputText value="#{administrator_Bean.mail}"/></p>
                     </div>
                 </div>
-                <p:button></p:button>
+                <p:commandLink action="#{administrator_Bean.cerrarSession()}" class="w3-margin-top w3-button w3-center w3-black" value="Log - Out"/>
             </div><!-- End Left Column -->
 
             <!--Middle paga-->
@@ -89,7 +89,7 @@
                                         </i>                                        
                                     </p:column>
                                     <p:column headerText="Delete">
-                                        <i class="fa fa-eraser button" style="font-size:18px;color:red">
+                                        <i class="fa fa-eraser " style="font-size:18px;color:red">
                                             <h:commandLink value=" Delete" action="#{list_Teacher.eliminarPersona(teacher.idUsuarios)}"/>
                                         </i>
                                     </p:column>
@@ -183,7 +183,7 @@
                                         </i>                                        
                                     </p:column>
                                     <p:column headerText="Delete">
-                                        <i class="fa fa-eraser button" style="font-size:18px;color:red">
+                                        <i class="fa fa-eraser " style="font-size:18px;color:red">
                                             <h:commandLink value=" Delete" action="#{list_Student.eliminarPersona(student.idUsuarios)}"/>
                                         </i>
                                     </p:column>

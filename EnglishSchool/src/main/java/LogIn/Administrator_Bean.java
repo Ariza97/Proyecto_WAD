@@ -28,6 +28,13 @@ public class Administrator_Bean implements Serializable {
         }
     }
 
+    public String cerrarSession() {
+        request.getSession().removeAttribute("sesionusuario");
+        request.getSession().removeAttribute("nombre");
+        request.getSession().removeAttribute("mail");
+        return "/index";
+    }
+
     public String getMail() {
         return mail;
     }

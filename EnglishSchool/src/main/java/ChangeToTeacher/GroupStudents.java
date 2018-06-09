@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.io.Serializable;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 
 @ManagedBean
 @ViewScoped
@@ -21,6 +22,7 @@ public class GroupStudents implements Serializable {
     private final HttpServletRequest request;
     private String id;
     private String nombre;
+    private String grupo;
     private List lstStudents;
 
     public GroupStudents() {
@@ -35,8 +37,10 @@ public class GroupStudents implements Serializable {
         Transaction t = hibernateSession.beginTransaction();
         Usuarios p = (Usuarios) hibernateSession.createQuery("from Usuarios where idLog = '" + id + "' ").uniqueResult();
         Grupo g = (Grupo) hibernateSession.createQuery("from Grupo where idUsuarios = " + p.getIdUsuarios() + "").uniqueResult();
-        String hql = "select u.idUsuarios,u.nombre,u.apellido,u.correo,u.contraseña from alumno_grupo a, usuarios u where a.idGrupo = " + g.getIdGrupo() + " and a.idUsuarios=u.idUsuarios;";
-        Query consulta = hibernateSession.createSQLQuery(hql);
+        grupo = g.getNombre();
+        String hql = "select u.idUsuarios,u.nombre,u.apellido,u.correo,u.contraseña,u.idRol,u.idLog from alumno_grupo a, usuarios u where a.idGrupo = " + g.getIdGrupo() + " and a.idUsuarios=u.idUsuarios;";
+        System.out.println(hql);
+        SQLQuery consulta = hibernateSession.createSQLQuery(hql).addEntity(Usuarios.class);
         lstStudents = consulta.list();
     }
 
@@ -64,4 +68,14 @@ public class GroupStudents implements Serializable {
         this.lstStudents = lstStudents;
     }
 
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
+    }
+
+   
+    
 }

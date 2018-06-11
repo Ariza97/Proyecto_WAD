@@ -67,14 +67,18 @@ public class List_Student implements Serializable {
         guarda.setParameter("apellido", u.getApellido());
         guarda.setParameter("idLog", u.getIdLog());
         Query guarda2 = hibernateSession.createSQLQuery(hql2);
-        Query guarda3 = hibernateSession.createSQLQuery(hql3);
+        Query guarda3 = (Query) hibernateSession.createSQLQuery(hql3).uniqueResult();
         Query guarda4 = hibernateSession.createSQLQuery(hql4);
         guarda.executeUpdate();
+        System.out.println(hql);
         try {
+            System.out.println(hql3);
             if (guarda3 == null) {
                 guarda2.executeUpdate();
+                System.out.println(hql2);
             } else {
                 guarda4.executeUpdate();
+                System.out.println(hql4);
             }
         } catch (Exception e) {
         }

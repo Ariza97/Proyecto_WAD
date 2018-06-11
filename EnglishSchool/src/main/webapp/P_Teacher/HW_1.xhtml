@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Exercises</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        
+        <link rel="stylesheet" type="text/css" href="../css/css_DragAndDrop.css"/>
+
+    </h:head>
+    
+    <h:body class="w3-light-grey w3-content" style="max-width:1600px" >
+
+<div class="">
+    <div class="">
+        <div class="">
+            <div id="dragElements" ondragstart="dragStart(event)" drag="drag(event)">
+                <img src="../Pictures/_letraUno.jpg" class="w3-border w3-padding" height="100" id="textUno"/>
+                <img src="../Pictures/_letraDos.jpg" class="w3-border w3-padding" height="100" id="textDos"/>
+                <img src="../Pictures/_flechaUno.png" class="w3-border w3-padding" height="100" id="flechaUno"/>
+                <img src="../Pictures/_flechaDos.png" class="w3-border w3-padding" height="100" id="../Pictures/_flechaDos.png"/>
+            </div>
+        </div>
+    </div>
+        
+        <div class="w3-panel w3-pale-green w3-bottombar w3-border-green w3-border" style="width:825px; height:500px">
+            <div ondrop="drop_lienzo(event)" ondragover="permitirDrop(event)"  drag="drag(event)">
+            <canvas id="lienzo"></canvas>     
+            </div>
+        </div>
+</div>
+        <h:form>
+            <p:commandLink value="Return" action="#{navigationBetweenPages.toExercises()}"/>
+            <br/>
+            <p:commandLink value="Save" action="#{navigationBetweenPages.toExercises()}"/>
+        </h:form>
+            
+            
+    </h:body>
+    
+        <script src="../js/fabric.js"/>
+        <script src="../js/createHW1.js"/>
+</html>

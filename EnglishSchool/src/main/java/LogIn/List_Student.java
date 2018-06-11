@@ -40,7 +40,7 @@ public class List_Student implements Serializable {
         Usuarios user = (Usuarios) hibernateSession.load(Usuarios.class, id);
         hibernateSession.delete(user);
         t.commit();
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Teacher deleted", "Review changed");
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Student deleted", "Review changed");
         PrimeFaces.current().dialog().showMessageDynamic(message);
 
         lstpersona.clear();

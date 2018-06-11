@@ -30,4 +30,25 @@ public class navigationBetweenPages implements Serializable {
         System.out.println("Cambiando a pagina WelcomeTeacher");
         return "WelcomeTeacher";
     }
+    
+    public String welcomeToExercises(){
+        System.out.println("Cambiando a pagina Exercices");
+        return "Exercises";        
+    }
+    
+    public String exercisestToWelcome() {
+        System.out.println("Cambiando a pagina WelcomeTeacher");
+        return "WelcomeTeacher";
+    }
+
+//HW1
+    public String toExercises() {
+        System.out.println("Cambiando a pagina WelcomeTeacher");
+        return "Exercises";
+    }
+    public String toHW_1() {
+        System.out.println("Cambiando a pagina WelcomeTeacher");
+        return "HW_1";
+    }    
+    
 }

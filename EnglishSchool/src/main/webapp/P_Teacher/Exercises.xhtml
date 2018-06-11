@@ -27,38 +27,62 @@
       <img src="../Pictures/avatar1.png" class="w3-circle w3-margin-right" style="width:100px"/>
     </div>
 
-<!--Create diagrams-->
-    
-    <div class="w3-third" style="padding-left: 150px; text-shadow:2px 1px 0 #444">
-      <button class="w3-button w3-teal w3-round  w3-large w3-round ">
-          <i class="fa fa-plus-square"></i>
-          &nbsp;<b>Create new diagram</b> 
-      </button>
-    </div>
-
-<!--Title diagrams-->
-    <div style="padding:70px 0px 20px 50px;">
-        <div class="w3-tag w3-round w3-light-gray" style="padding:3px">
-            <div class="w3-tag w3-round w3-light-grey w3-large w3-text-blue-grey">
-                <h3><b>&emsp;Diagrams&emsp;</b></h3>
-            </div>
-        </div>
-    </div>
+<br/>
 
 <!--Table-->
 <div style="padding:0px 50px 0px 50px;">
+    <h:form>
  <table class="w3-table w3-bordered">
     <tr>
       <th><i class="fa fa-pie-chart w3-large"></i> Diagram name </th>
-      <th><i class="fa fa-calendar"></i> Delivery deadline </th>
       <th> </th>
       <th> </th>
-      <th><i class="fa fa-check-square w3-xlarge"></i></th>
+      <th> </th>
     </tr>
     
      <tr>
-      <td>HW 1. Letters</td>
-      <td>18/02/19</td>
+      <td>HW 1. Order topics from broadest to narrowest</td>
+      <td>
+          <h:commandLink action="#{navigationBetweenPages.toHW_1()}">
+              <i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"/> 
+                Modify
+          </h:commandLink>
+      </td>
+      <td><i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"></i> Delete</td>
+      <td>
+        <input class="w3-check" type="checkbox"><label> Visible</label></input>
+      </td>
+    </tr>
+     
+    <tr>
+      <td>HW 2. Organize information by main idea</td>
+      <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"></i> Modify</td>
+      <td><i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"></i> Delete</td>
+      <td>
+        <input class="w3-check" type="checkbox"><label> Visible</label></input>
+      </td>
+    </tr>
+
+    <tr>
+      <td>HW 3. Recognize the parts of a Works Cited entry (MLA 7th edition)</td>
+      <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"></i> Modify</td>
+      <td><i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"></i> Delete</td>
+      <td>
+        <input class="w3-check" type="checkbox"><label> Visible</label></input>
+      </td>
+    </tr>
+
+    <tr>
+      <td>HW 4. Recognize the parts of a Works Cited entry (MLA 8th edition)</td>
+      <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"></i> Modify</td>
+      <td><i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"></i> Delete</td>
+      <td>
+        <input class="w3-check" type="checkbox"><label> Visible</label></input>
+      </td>
+    </tr>
+
+    <tr>
+      <td>HW 5. Use in-text citations with MLA formatting</td>
       <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"></i> Modify</td>
       <td><i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"></i> Delete</td>
       <td>
@@ -67,24 +91,39 @@
     </tr>
      
     <tr>
-      <td>HW 2. Nouns.</td>
-      <td>18/04/19</td>
+      <td>HW 6. Identify plagiarism</td>
       <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"></i> Modify</td>
       <td><i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"></i> Delete</td>
       <td>
-        <p><input class="w3-check" type="checkbox"><label> Visible</label></input></p>
+        <input class="w3-check" type="checkbox"><label> Visible</label></input>
       </td>
     </tr>
-
      
+    <tr>
+      <td>HW 7. Suggest appropriate revisions</td>
+      <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"></i> Modify</td>
+      <td><i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"></i> Delete</td>
+      <td>
+        <input class="w3-check" type="checkbox"><label> Visible</label></input>
+      </td>
+    </tr> 
   </table>
+    </h:form>
 </div>
 
-<!--Footer-->
-<footer class="w3-container w3-light-grey" style="padding-left:30px; padding-top: 50px">
-    <p align="left"><span class="w3-tag w3-amber w3-medium w3-round w3-center w3-medium"><i class="fa fa-arrow-circle-left"></i>&ensp;<strong>Back to menu</strong></span>&emsp;</p>    
-</footer>
-
+        <!--Footer-->
+        <footer class="w3-container w3-light-grey" style="padding-left:30px; padding-top: 50px">
+            <p align="left">
+            <h:form>
+                    <h:commandLink action="#{navigationBetweenPages.exercisestToWelcome()}">
+                        <span class="w3-tag w3-amber w3-medium w3-round w3-center w3-medium">
+                            <i class="fa fa-arrow-circle-left"></i>&ensp;
+                            <strong>Back to menu</strong>
+                        </span>
+                    </h:commandLink>
+            </h:form>
+            </p>
+        </footer>
     </h:body>
 </html>
 

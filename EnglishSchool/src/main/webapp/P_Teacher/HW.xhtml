@@ -55,8 +55,12 @@
         <div id="json-inout">
             <h3>Quarter Area</h3>
                 <h5>Save area</h5>
-                <p:commandButton onclick="loadJSON()" value="Load"/>
-                <p:commandButton onclick="saveJSON()" value="Save"/>
+                <h:form id="save_Area">
+                    <h:inputHidden id="return_canvas" value="#{navigationBetweenPages.jdom}"/>
+                    <p:commandButton onclick="loadJSON()" value="Load"/>
+                    <p:commandButton onclick="saveJSON()" action="#{navigationBetweenPages.getjdom()}" value="Save"/>                    
+                </h:form>
+
         </div>
             
 <!--            

@@ -125,6 +125,7 @@ function getHorizontalLock(event) {
 //Save area
 function saveJSON(event) {
     estado = JSON.stringify(canvas);
+    document.getElementById('save_Area:return_canvas').value =estado+"";
     alert(estado);
     return estado;
 }

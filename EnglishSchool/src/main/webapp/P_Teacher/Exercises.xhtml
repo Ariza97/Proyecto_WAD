@@ -39,50 +39,55 @@
       <th><i class="fa fa-pie-chart w3-large"></i> Diagram name </th>
       <th> </th>
       <th> </th>
-      <th> </th>
     </tr>
     
      <tr>
       <td>HW 1. Order topics from broadest to narrowest</td>
       <td>
           <h:commandLink action="#{navigationBetweenPages.toHW_1('uno')}">
-              <i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"/> 
+            <i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"/> 
                 Modify
           </h:commandLink>
       </td>
-      <td><i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"></i> Delete</td>
       <td>
-        <input class="w3-check" type="checkbox"><label> Visible</label></input>
+          <h:commandLink action="#{navigationBetweenPages.deletedExercises('uno')}">
+            <i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"/> 
+                Delete
+          </h:commandLink>
       </td>
     </tr>
      
     <tr>
       <td>HW 2. Organize information by main idea</td>
-      <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"></i> Modify</td>
-      <td><i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"></i> Delete</td>
       <td>
-        <input class="w3-check" type="checkbox"><label> Visible</label></input>
+          <h:commandLink action="#{navigationBetweenPages.toHW_1('dos')}">
+              <i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"/> 
+                Modify
+          </h:commandLink>
+      </td>
+      <td>
+          <h:commandLink action="#{navigationBetweenPages.deletedExercises('dos')}">
+            <i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"/> 
+                Delete
+          </h:commandLink>
       </td>
     </tr>
 
     <tr>
       <td>HW 3. Recognize the parts of a Works Cited entry (MLA 7th edition)</td>
-      <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"></i> Modify</td>
-      <td><i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"></i> Delete</td>
       <td>
-        <input class="w3-check" type="checkbox"><label> Visible</label></input>
-      </td>
-    </tr>
-
-    <tr>
-      <td>HW 4. Use in-text citations with MLA formatting</td>
-      <td><i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"></i> Modify</td>
-      <td><i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"></i> Delete</td>
+          <h:commandLink action="#{navigationBetweenPages.toHW_1('tres')}">
+              <i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"/> 
+                Modify
+          </h:commandLink>
+      </td> 
       <td>
-        <input class="w3-check" type="checkbox"><label> Visible</label></input>
+          <h:commandLink action="#{navigationBetweenPages.deletedExercises('tres')}">
+            <i class="fa fa-eraser button w3-xlarge" style="font-size:18px;color:red"/> 
+                Delete
+          </h:commandLink>
       </td>
-    </tr>
-     
+    </tr>     
   </table>
     </h:form>
 </div>

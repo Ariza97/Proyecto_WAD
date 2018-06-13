@@ -86,6 +86,11 @@ function addtextBox(event) {
     });
     canvas.add(textSample);
 }
+//General Images
+function picture(archivo){
+    alert(archivo);
+}
+
 //Emojis
 function addImage(imageName, minScale, maxScale) {
     var coord = getRandomLeftTop();

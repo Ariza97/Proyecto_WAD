@@ -19,7 +19,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
-@ViewScoped
 @RequestScoped
 public class navigationBetweenPages implements Serializable {
 

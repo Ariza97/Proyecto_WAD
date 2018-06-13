@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Exercises</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        
+        <link rel="stylesheet" type="text/css" href="../css/css_DragAndDrop.css"/>
+    </h:head>
+    
+    <h:body class="w3-light-grey w3-content" style="max-width:1600px" onload="cargar(#{navigationBetweenPages.jdom})" >
+        
+<!-- Top container -->
+    <div class="w3-bar w3-black">
+        <!--Teahcer image-->
+        <div class="w3-container w3-black w3-third">
+            <div class="w3-container w3-row" style="padding: 0px 0px 0px 10px">
+               <p align="left" style="font-size: 18px;"><img src="../Pictures/avatar1.png" class="w3-circle w3-margin-right" style="height:70px;width:70px"/> 
+                </p>
+                   Welcome teacher, <strong><h:outputText value="#{teacher_Bean.nombre}"/>.</strong>
+                   Group,           <strong><h:outputText value="#{teacher_Bean.grupo}"/>.</strong><br/><br/>
+
+            </div>
+        </div>
+        
+<!--Create diagrams-->
+        <div class="w3-container w3-black w3-third">
+            <p align="center"><span  class="w3-tag w3-teal w3-xxlarge w3-round w3-center">Create diagrams</span></p>
+        </div>
+        
+<!--LogOut-->
+        <div class="w3-container w3-black w3-third">
+            <p align="right"><span class="w3-tag w3-light-grey w3-medium w3-round w3-center w3-large"><strong>LogOut</strong></span>&ensp;<i class="fa fa-arrow-circle-right"></i>&emsp;</p>
+        </div>
+  
+    </div>
+<!-- Space -->
+        <div id="space" class="w3-container w3-row" style="padding: 0px 10px 0px 10px">     
+        </div>
+
+<!--Board-->
+    <div class="w3-twothird" style="padding:0px 30px 0px 20px">  
+        <div class="w3-panel w3-pale-green w3-bottombar w3-border-green w3-border" style="width:825px; height:500px">
+            <div id="canvas-wrapper" ondrop="drop_lienzo(event)" ondragover="permitirDrop(event)"  drag="drag(event)">
+            <canvas id="canvas"></canvas>     
+            </div>
+        </div>
+    </div>
+    
+<!--Buttons Panel-->
+    <div class="w3-panel w3-third w3-middle-align" style="padding: 10px 20px 0px 10px">
+        
+<!--Simple Shapes--> 
+<div class="w3-cell-row w3-center">
+<!-- Space -->
+    <div class="w3-container w3-white" style="text-align: center;"><h3>Simple Shapes</h3></div>
+    <div id="space" class="w3-container w3-row" style="padding: 0px 10px 0px 10px"></div>    
+    <div id="space" class="w3-container w3-row" style="padding: 10px 10px 0px 10px"></div>
+    <div id="Buttons_Shapes">
+        <p:commandButton onclick="addRect(event)"      class="fa fa-square w3-xlarge" style="padding: 10px 3px 0px 3px" value=""/>
+        <p:commandButton onclick="addCircle(event)"    class="fa fa-circle w3-xlarge" style="padding: 10px 3px 0px 3px" value=""/>
+        <p:commandButton onclick="addTriangule(event)" class="fa fa-sort-up w3-xlarge" style="padding: 10px 3px 0px 3px" value=""/>
+        <p:commandButton onclick="addLine(event)"      class="fa fa-minus w3-xlarge" style="padding: 10px 3px 0px 3px" value=""/>
+        <p:commandButton onclick="addtextBox(event)"   class="fa fa-font w3-xlarge" style="padding: 10px 3px 0px 3px" value=""/>
+    </div>
+    <!-- Space -->
+    <div id="space" class="w3-container w3-row" style="padding: 10px 10px 0px 10px"></div>
+    <div id="space" class="w3-container w3-row" style="padding: 10px 10px 0px 10px"></div>
+    <div id="space" class="w3-container w3-row" style="padding: 10px 10px 0px 10px"></div>
+    <!--Multimedia-->
+    <div class="w3-container w3-white" style="text-align: center;"><h3>Multimedia</h3></div>
+<!-- Space -->
+    <div id="space" class="w3-container w3-row" style="padding: 10px 10px 0px 10px"></div>
+<!-- Botones emojis -->  
+    <img src="../Pictures/1.png" class="w3-circle"/><p:commandButton onclick="image_1(event)" class="w3-tiny" value="Add"/>
+    <img src="../Pictures/2.png" class="w3-circle"/><p:commandButton onclick="image_2(event)" class="w3-tiny" value="Add"/>
+    <img src="../Pictures/3.png" class="w3-circle"/><p:commandButton onclick="image_3(event)" class="w3-tiny" value="Add"/>
+    <img src="../Pictures/4.png" class="w3-circle"/><p:commandButton onclick="image_4(event)" class="w3-tiny" value="Add"/>
+    <img src="../Pictures/5.png" class="w3-circle"/><p:commandButton onclick="image_5(event)" class="w3-tiny" value="Add"/>
+<!-- Space -->
+    <div id="space" class="w3-container w3-row" style="padding: 10px 10px 0px 10px"></div>
+<!--Botones imagen/video-->
+    <div id="Buttons_ImVi w3-center">
+        <p:commandButton onclick="picture(#{fileUploadView.archivo})"  class="fa fa-image w3-xlarge" value="Image"/>
+        <p:commandButton onclick="addCircle(event)"    class="fa fa-video-camera w3-xlarge" value="Video"/>
+            <div id="space" class="w3-container w3-row" style="padding: 10px 10px 0px 10px"></div>
+        <p:fileUpload fileUploadListener="#{fileUploadView.fileUpload}"/>    
+    </div> 
+<!-- Space -->
+    <div id="space" class="w3-container w3-row" style="padding: 10px 10px 0px 10px"></div>
+    <div id="space" class="w3-container w3-row" style="padding: 10px 10px 0px 10px"></div>
+    <div id="space" class="w3-container w3-row" style="padding: 10px 10px 0px 10px"></div>
+    <!-- Delete -->
+    <div class="w3-container w3-white" style="text-align: center;"><h3>Options</h3></div>
+
+    <div id="Options">
+            <p:commandButton onclick="removeSelected(event)" class="fa fa-close w3-large" style="padding: 10px 5px 5px 3px" value="Delete"/>
+            <p:commandButton onclick="clearAll(event)"  class="fa fa-trash w3-large" style="padding: 10px 5px 5px 3px" value="Clear All"/>
+    </div>
+    <div id="space" class="w3-container w3-row" style="padding: 10px 10px 0px 10px"></div>
+<!-- Save -->
+    <div id="json-inout">
+            <h:form id="save_Area">
+                <h:inputHidden id="return_canvas" value="#{navigationBetweenPages.jdom}"/>
+                <p:commandButton class="btn btn-info fa fa-spinner w3-xlarge" onclick="loadJSON()" value="Load"/>
+                <p:commandButton class="btn btn-info fa fa-check  w3-xlarge"  onclick="saveJSON()" action="#{navigationBetweenPages.getjdom()}" value="Save"/> 
+            </h:form>
+    </div>
+</div>
+<!--            
+            <h4>Object-Style</h4>
+            <div class="object-controls" object-buttons-enabled="getSelected()">
+              <label for="color">Fill / Stroke / Background:</label>
+              <input type="color" style="width:40px" bind-value-to="fill" class="btn-object-action"/>
+              <input type="color" style="width:40px" bind-value-to="stroke" class="btn-object-action"/>
+              <input type="color" value="" id="text-bg-color" size="10" class="btn-object-action" bind-value-to="bgColor"/><br />
+ </div>
+-->
+</div>
+    <div id="back" style="padding: 0px 10px 0px 20px">
+            <h:form>
+                        <h:commandLink action="#{navigationBetweenPages.toExercises()}">
+                            <span class="w3-tag w3-amber w3-medium w3-round w3-center w3-medium">
+                                <i class="fa fa-arrow-circle-left"></i>&ensp;
+                                <strong>Back to Exercises</strong>
+                            </span>
+                        </h:commandLink>
+            </h:form>
+    </div>
+ <!-- Space -->
+        <div id="space" class="w3-container w3-row" style="padding: 10px 10px 0px 10px">     
+        </div>           
+            
+    </h:body>
+    
+        <script src="../js/fabric.js"/>
+        <script src="../js/add_form.js"/>
+        <script src="../js/util.js"/>
+</html>

@@ -22,3 +22,5 @@ Da de alta, tiene detalles al mostrar la tabla cuando elimina, se debe actualiza
 
 # Agregados queries para insertar grupos sin profesor asignado.
 Al modificar grupo se debe escribir el nombre especificado en la DB.
+
+# Proyecto recreado sin maven

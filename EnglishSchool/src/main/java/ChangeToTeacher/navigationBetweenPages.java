@@ -338,4 +338,41 @@ public class navigationBetweenPages implements Serializable {
         }
     }
     
+    
+    
+    //Student
+    public String toHomework(String num_ejercicio) {
+        System.out.println("Cambiando a pagina HW");
+     FacesContext fc;
+     HttpServletRequest request;
+     String id;
+     String nombre;
+     String grupo;
+    
+        fc = FacesContext.getCurrentInstance();
+        request = (HttpServletRequest) fc.getExternalContext().getRequest();
+        if (request.getSession().getAttribute("sesionusuario") != null) {
+            id = (String) request.getSession().getAttribute("sesionusuario");
+            nombre = (String) request.getSession().getAttribute("nombre");
+            grupo = (String) request.getSession().getAttribute("grupo");
+        System.out.println("Grupo:" +grupo);
+        System.out.println("num ejercicio:" +num_ejercicio);
+            cargarJDOM_student(num_ejercicio);
+        }
+        return "Homework";
+    }
+    public void cargarJDOM_student(String Nivel){        
+                switch (Nivel) {
+                    case "uno":
+                            jdom =fileReader(file.getAbsolutePath()+"\\1CM1_Uno.txt");
+                            System.out.println("JDOM: " +jdom);
+                        break;
+                    case "dos":
+                            jdom =fileReader(file.getAbsolutePath()+"\\1CM1_Dos.txt");                        
+                            break;
+                    default:
+                            jdom =fileReader(file.getAbsolutePath()+"\\1CM1_Tres.txt");
+                        break;
+                }   
+    }
 }

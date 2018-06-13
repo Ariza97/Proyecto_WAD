@@ -1,12 +1,88 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Exercises</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        
+        <link rel="stylesheet" type="text/css" href="../css/css_DragAndDrop.css"/>
     </h:head>
-    <h:body>
-        Hello from Facelets
+    <h:body class="w3-light-grey w3-content" style="max-width:1600px" >
+
+        <!-- Top container -->
+        <div class="w3-container w3-black" >
+            <!--Teahcer image-->
+            <p align="right"><span class="w3-tag w3-light-grey w3-medium w3-round w3-center"><strong>LogOut</strong></span>&ensp;<i class="fa fa-arrow-circle-right"></i>&emsp;</p>
+            <p align="center"><span  class="w3-tag w3-green w3-xxlarge w3-round w3-center">Exercises</span></p>
+            <h4 align="center"><span> Welcome Student, <strong><h:outputText value="#{student_Bean.nombre}"/></strong></span></h4>
+
+        </div>
+
+        <div class="w3-container w3-row" style="padding: 20px 0px 20px 50px">
+            <img src="../Pictures/avatar1.png" class="w3-circle w3-margin-right" style="width:100px"/>
+        </div>
+
+        <br/>
+
+        <!--Table-->
+        <div style="padding:0px 50px 0px 50px;">
+            <h:form>
+                <table class="w3-table w3-bordered">
+                    <tr>
+                        <th><i class="fa fa-pie-chart w3-large"></i> Diagram name </th>
+                        <th> </th>
+                    </tr>
+
+                    <tr>
+                        <td>HW 1. Order topics from broadest to narrowest</td>
+                        <td>
+                            <h:commandLink action="#{navigationBetweenPages.toHomework('uno')}">
+                                <i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"/> 
+                                Perform
+                            </h:commandLink>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>HW 2. Organize information by main idea</td>
+                        <td>
+                            <h:commandLink action="#{navigationBetweenPages.toHomework('dos')}">
+                                <i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"/> 
+                                Perform
+                            </h:commandLink>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>HW 3. Recognize the parts of a Works Cited entry (MLA 7th edition)</td>
+                        <td>
+                            <h:commandLink action="#{navigationBetweenPages.toHomework('tres')}">
+                                <i class="fa fa-pencil-square-o w3-xlarge" style="font-size:18px;color:green"/> 
+                                Perform
+                            </h:commandLink>
+                        </td> 
+                    </tr>     
+                </table>
+            </h:form>
+        </div>
+
+        <br/><br/><br/><br/>
+    <div id="back" style="padding: 0px 10px 0px 20px">
+            <h:form>
+                <h:commandLink action="#{navigationBetweenPages.mainStudents()}">
+                            <span class="w3-tag w3-amber w3-medium w3-round w3-center w3-medium">
+                                <i class="fa fa-arrow-circle-left"></i>&ensp;
+                                <strong>Back to Exercises</strong>
+                            </span>
+                </h:commandLink>
+            </h:form>
+    </div>
     </h:body>
 </html>
 

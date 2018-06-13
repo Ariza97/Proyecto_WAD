@@ -18,6 +18,22 @@ public class navigationBetweenPages implements Serializable {
     
     public navigationBetweenPages() {
     }
+    
+    public String studentSettings() {
+        System.out.println("Cambiando a pagina Settings de Students");
+        return "studentSettings";
+    }
+    
+    public String studentExercises() {
+        System.out.println("Cambiando a pagina Exercise de Students");
+        return "studentExercises";
+    }
+    
+    public String mainStudents() {
+        System.out.println("Cambiando a pagina Exercise de Students");
+        return "WelcomeStudents";
+    }
+    
     public String welcomeToSettings() {
         System.out.println("Cambiando a pagina Settings");
         return "Settings";

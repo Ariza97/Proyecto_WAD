@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Settings - Student</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/css_index.css"></link>
+    </h:head>
+
+    <h:body class="w3-light-grey w3-content" style="max-width:1600px" >
+
+        <!-- Top container -->
+        <div class="w3-container w3-black" >
+            <!--Student image-->
+            <p align="center"><span  class="w3-tag w3-red w3-xxlarge w3-round w3-center">Settings</span></p>
+            <h4 align="center"><span> Welcome , <strong><h:outputText value="#{schoolBean.nombre}"/></strong></span></h4>
+        </div>
+
+        <div class="w3-container w3-row" style="padding: 20px 0px 20px 50px">
+            <img src="../Pictures/avatar1.png" class="w3-circle w3-margin-right" style="width:100px"/>
+        </div>
+
+
+        <!--Table-->
+        <div style="padding:0px 400px 0px 400px;">
+            <h:form  id="StudentInf" class="w3-container">
+                <p:panelGrid class="w3-center w3-table">
+                    <p:row>
+                        <p:column>
+                            <i class="fa fa-vcard w3-large"></i>&ensp;Name
+                        </p:column>
+                        <p:column>
+                            <p:outputLabel value="#{schoolBean.estudiante.nombre}" rendered="#{not schoolBean.estudiante.editable}"/>
+                            <p:inputText value="#{schoolBean.estudiante.nombre}" rendered="#{schoolBean.estudiante.editable}"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column>
+                            <i class="fa fa-vcard w3-large"></i>&ensp;Last Name
+                        </p:column>
+                        <p:column>
+                            <p:outputLabel value="#{schoolBean.estudiante.apellido}" rendered="#{not schoolBean.estudiante.editable}"/>
+                            <p:inputText value="#{schoolBean.estudiante.apellido}" rendered="#{schoolBean.estudiante.editable}"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column>
+                            <i class="fa fa-user w3-large"></i>&ensp;User Name
+                        </p:column>
+                        <p:column>
+                            <p:outputLabel value="#{schoolBean.estudiante.idLog}" rendered="#{not schoolBean.estudiante.editable}"/>
+                            <p:inputText value="#{schoolBean.estudiante.idLog}" rendered="#{schoolBean.estudiante.editable}"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column>
+                            <i class="fa fa-user w3-large"></i>&ensp;Password
+                        </p:column>
+                        <p:column>
+                            <p:outputLabel value="#{schoolBean.estudiante.contraseña}" rendered="#{not schoolBean.estudiante.editable}"/>
+                            <p:inputText value="#{schoolBean.estudiante.contraseña}" rendered="#{schoolBean.estudiante.editable}"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column>
+                            <i class="fa fa-user w3-large"></i>&ensp;Email
+                        </p:column>
+                        <p:column>
+                            <p:outputLabel value="#{schoolBean.estudiante.correo}" rendered="#{not schoolBean.estudiante.editable}"/>
+                            <p:inputText value="#{schoolBean.estudiante.correo}" rendered="#{schoolBean.estudiante.editable}"/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+                <i class="fa fa-pencil-square-o w3-center" style="font-size:18px;color:green">
+                    <h:commandLink value="Modify Data" action="#{schoolBean.editAction(schoolBean.estudiante)}" rendered="#{not schoolBean.estudiante.editable}"/>
+                    <h:commandLink value="Save Changes" action="#{schoolBean.saveChanges(schoolBean.estudiante)}" rendered="#{schoolBean.estudiante.editable}"/>
+                </i>
+                <br/>
+            </h:form> 
+        </div>
+
+        <!--Footer-->
+        <footer class="w3-container w3-light-grey" style="padding-left:30px; padding-top: 50px">
+            <p align="left">
+                <h:form>
+                    <span class="w3-tag w3-amber w3-medium w3-round w3-center w3-medium">
+                        <h:commandLink action="#{navigationBetweenPages.mainStudents()}">
+                            <i class="fa fa-arrow-circle-left">
+                                <strong> Back to menu</strong>
+                            </i>
+                        </h:commandLink>
+                    </span>&emsp;
+                </h:form>
+            </p>    
+        </footer>
+
+    </h:body>
+</html>
+

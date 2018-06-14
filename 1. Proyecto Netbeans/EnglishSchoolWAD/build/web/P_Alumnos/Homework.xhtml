@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Exercises</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+
+        <link rel="stylesheet" type="text/css" href="../css/css_DragAndDrop.css"/>
+    </h:head>
+
+    <h:body class="w3-light-grey w3-content" style="max-width:1600px" onload="cargar(#{navigationBetweenPages.jdom})" >
+
+        <!-- Top container -->
+        <div class="w3-bar w3-black">
+            <!--Teahcer image-->
+            <div class="w3-container w3-black w3-third">
+                <div class="w3-container w3-row" style="padding: 0px 0px 0px 10px">
+                    <p align="left" style="font-size: 18px;"><img src="../Pictures/avatar1.png" class="w3-circle w3-margin-right" style="height:50px;width:50px"/> 
+                        Welcome student, <strong><h:outputText value="#{student_Bean.nombre}"/></strong>
+                    </p>
+                </div>
+            </div>
+            <!--Create diagrams-->
+            <div class="w3-container w3-black w3-third">
+                <p align="center"><span  class="w3-tag w3-teal w3-xxlarge w3-round w3-center">Exercises</span></p>
+            </div>
+
+            <!--LogOut-->
+            <div class="w3-container w3-black w3-third">
+                <p align="right"><span class="w3-tag w3-light-grey w3-medium w3-round w3-center w3-large"><strong>LogOut</strong></span>&ensp;<i class="fa fa-arrow-circle-right"></i>&emsp;</p>
+            </div>
+
+        </div>
+        <!-- Space -->
+        <div id="space" class="w3-container w3-row" style="padding: 0px 10px 0px 10px">     
+        </div>
+
+        <!--Board-->
+        <div class="w3-twothird" style="padding:0px 30px 0px 20px">  
+            <div class="w3-panel w3-pale-green w3-bottombar w3-border-green w3-border" style="width:825px; height:500px">
+                <div id="canvas-wrapper" ondrop="drop_lienzo(event)" ondragover="permitirDrop(event)"  drag="drag(event)">
+                    <canvas id="canvas"></canvas>     
+                </div>
+            </div>
+        </div>
+       
+    <div id="back" style="padding: 0px 10px 0px 20px">
+            <h:form>
+                <h:commandLink action="#{navigationBetweenPages.studentExercises()}">
+                            <span class="w3-tag w3-amber w3-medium w3-round w3-center w3-medium">
+                                <i class="fa fa-arrow-circle-left"></i>&ensp;
+                                <strong>Back to Exercises</strong>
+                            </span>
+                        </h:commandLink>
+            </h:form>
+    </div>
+ <!-- Space -->
+        <div id="space" class="w3-container w3-row" style="padding: 10px 10px 0px 10px">     
+        </div> 
+    </h:body>
+        <script src="../js/fabric.js"/>
+        <script src="../js/add_form.js"/>
+        <script src="../js/util.js"/>
+</html>
